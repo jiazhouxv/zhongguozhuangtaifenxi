@@ -1,74 +1,34 @@
 [
-  {
-    "case_id": "JAPAN_1990_BALANCE_SHEET_RECESSION",
-    "name": "日本 1990s 资产负债表衰退",
-    "period": "1990s-2000s",
-    "crisis_type": ["房地产泡沫", "银行坏账", "资产负债表衰退", "低通胀"],
-    "similarity_score": 84,
-    "summary": "与中国当前最相似：房地产下行、居民和企业降杠杆、银行坏账延后确认、长期低通胀和低信心。",
-    "dimensions": {"real_estate": 5, "banking": 4, "foreign_debt": 1, "inflation": 4, "fiscal": 3, "household": 5}
-  },
-  {
-    "case_id": "EUROZONE_2009_SOVEREIGN_BANK_NEXUS",
-    "name": "欧债危机：主权—银行循环",
-    "period": "2009-2016",
-    "crisis_type": ["主权债务", "银行风险", "财政紧缩"],
-    "similarity_score": 70,
-    "summary": "可类比中国地方财政、城投债、地方银行之间的风险循环，但中国有本币主权和中央协调能力。",
-    "dimensions": {"real_estate": 2, "banking": 4, "foreign_debt": 2, "inflation": 1, "fiscal": 5, "household": 3}
-  },
-  {
-    "case_id": "USA_2008_SUBPRIME_CRISIS",
-    "name": "美国 2008 次贷危机",
-    "period": "2007-2009",
-    "crisis_type": ["房地产泡沫", "银行危机", "影子银行", "全球金融危机"],
-    "similarity_score": 64,
-    "summary": "房地产和银行资产质量相关，但中国没有同等规模的全球化次贷证券化和自由挤兑机制。",
-    "dimensions": {"real_estate": 5, "banking": 5, "foreign_debt": 1, "inflation": 1, "fiscal": 3, "household": 4}
-  },
-  {
-    "case_id": "ASIA_1997_FINANCIAL_CRISIS",
-    "name": "亚洲金融危机 1997",
-    "period": "1997-1998",
-    "crisis_type": ["货币危机", "银行危机", "外债", "资本外逃"],
-    "similarity_score": 42,
-    "summary": "中国存在资本流动和汇率预期压力，但外储、经常账户顺差和资本管制使经典外债危机风险较低。",
-    "dimensions": {"real_estate": 3, "banking": 4, "foreign_debt": 5, "inflation": 2, "fiscal": 2, "household": 2}
-  },
-  {
-    "case_id": "ARGENTINA_2001_CRISIS",
-    "name": "阿根廷 2001 崩盘",
-    "period": "1998-2002",
-    "crisis_type": ["债务违约", "货币局崩溃", "银行冻结", "资本外逃"],
-    "similarity_score": 28,
-    "summary": "作为极端尾部风险对照。中国不是美元化经济，也没有固定美元货币局制度。",
-    "dimensions": {"real_estate": 2, "banking": 4, "foreign_debt": 5, "inflation": 3, "fiscal": 5, "household": 3}
-  },
-  {
-    "case_id": "GERMANY_1923_HYPERINFLATION",
-    "name": "德国魏玛恶性通胀",
-    "period": "1921-1923",
-    "crisis_type": ["恶性通胀", "货币信用崩溃", "财政货币化"],
-    "similarity_score": 12,
-    "summary": "中国当前更像需求不足和低通胀，不像恶性通胀；该案例用于监测极端货币路径。",
-    "dimensions": {"real_estate": 0, "banking": 1, "foreign_debt": 2, "inflation": 5, "fiscal": 5, "household": 1}
-  },
-  {
-    "case_id": "LEBANON_2019_BANKING_COLLAPSE",
-    "name": "黎巴嫩 2019 银行体系崩溃",
-    "period": "2019-至今",
-    "crisis_type": ["银行冻结", "汇率崩溃", "存款损失", "国家信用崩溃"],
-    "similarity_score": 18,
-    "summary": "极端银行信心风险案例，目前不是中国基准路径，但可用于监测存款信心和资本管制尾部风险。",
-    "dimensions": {"real_estate": 2, "banking": 5, "foreign_debt": 4, "inflation": 4, "fiscal": 5, "household": 4}
-  },
-  {
-    "case_id": "SRI_LANKA_2022_FX_CRISIS",
-    "name": "斯里兰卡 2022 外汇危机",
-    "period": "2022-2023",
-    "crisis_type": ["外储枯竭", "主权违约", "进口短缺"],
-    "similarity_score": 16,
-    "summary": "中国外储、经常账户和外部资产明显强于斯里兰卡，该案例用于对照外汇安全边界。",
-    "dimensions": {"real_estate": 1, "banking": 2, "foreign_debt": 5, "inflation": 4, "fiscal": 5, "household": 2}
-  }
+  {"case_id":"JAPAN_1990_BALANCE_SHEET_RECESSION","name":"日本 1990s 资产负债表衰退","period":"1990s-2000s","category":"房地产泡沫与资产负债表衰退","crisis_type":["房地产泡沫","银行坏账","资产负债表衰退","低通胀"],"similarity_score":84,"summary":"与中国当前最相似：房地产下行、私人部门降杠杆、银行坏账延后确认、长期低通胀和低信心。"},
+  {"case_id":"USA_2008_SUBPRIME_CRISIS","name":"美国 2008 次贷危机","period":"2007-2009","category":"房地产泡沫与资产负债表衰退","crisis_type":["房地产泡沫","银行危机","影子银行"],"similarity_score":64,"summary":"房地产和银行资产质量相关，但中国没有同等规模的全球化次贷证券化和自由挤兑机制。"},
+  {"case_id":"IRELAND_2008_PROPERTY_BANKING_CRISIS","name":"爱尔兰 2008 房地产/银行危机","period":"2008-2013","category":"房地产泡沫与资产负债表衰退","crisis_type":["房地产泡沫","银行救助","主权财政压力"],"similarity_score":58,"summary":"房地产泡沫破裂后，银行危机转为财政压力，适合对照地产—银行—财政传导。"},
+  {"case_id":"SPAIN_2008_PROPERTY_BANKING_CRISIS","name":"西班牙 2008 房地产与储蓄银行危机","period":"2008-2014","category":"房地产泡沫与资产负债表衰退","crisis_type":["房地产泡沫","地方储蓄银行","高失业"],"similarity_score":55,"summary":"房地产、地方金融机构和青年就业压力联动，适合对照地产下行对就业的拖累。"},
+
+  {"case_id":"USA_1929_GREAT_DEPRESSION","name":"美国 1929 大萧条","period":"1929-1933","category":"大萧条与债务通缩","crisis_type":["大萧条","银行危机","债务通缩"],"similarity_score":38,"summary":"用于研究银行倒闭、信用收缩、债务通缩和失业如何把衰退放大成萧条。"},
+  {"case_id":"GERMANY_1929_GREAT_DEPRESSION","name":"德国 1929-1933 大萧条","period":"1929-1933","category":"大萧条与债务通缩","crisis_type":["大萧条","外资撤离","银行危机","政治极化"],"similarity_score":30,"summary":"外资撤离、银行危机和失业共同冲击魏玛共和国，适合作为经济危机政治后果案例。"},
+  {"case_id":"RUSSIA_1990S_TRANSITION_DEPRESSION","name":"俄罗斯 1990s 转型萧条","period":"1991-1998","category":"大萧条与债务通缩","crisis_type":["转型萧条","产出崩溃","货币危机"],"similarity_score":22,"summary":"制度转型、产出崩溃和货币金融混乱叠加，是极端转型衰退样本。"},
+
+  {"case_id":"SWEDEN_1991_BANKING_CRISIS","name":"瑞典 1991 银行危机","period":"1991-1993","category":"银行与金融危机","crisis_type":["房地产泡沫","银行危机","政府救助"],"similarity_score":48,"summary":"快速确认坏账、政府接管和重组银行，是处理地产银行危机的重要样本。"},
+  {"case_id":"FINLAND_1991_BANKING_CRISIS","name":"芬兰 1991 银行危机","period":"1991-1994","category":"银行与金融危机","crisis_type":["房地产泡沫","银行危机","外需冲击"],"similarity_score":45,"summary":"地产泡沫与外需冲击叠加，适合对照出口和金融周期同时转弱。"},
+  {"case_id":"ICELAND_2008_BANKING_COLLAPSE","name":"冰岛 2008 银行业崩溃","period":"2008-2011","category":"银行与金融危机","crisis_type":["银行资产过度扩张","外债","货币危机"],"similarity_score":24,"summary":"银行资产规模远超本国经济体量，是小国银行全球扩张失败样本。"},
+  {"case_id":"LEBANON_2019_BANKING_COLLAPSE","name":"黎巴嫩 2019 银行体系崩溃","period":"2019-至今","category":"银行与金融危机","crisis_type":["银行冻结","汇率崩溃","存款损失"],"similarity_score":18,"summary":"极端银行信心风险案例，可用于监测存款信心、资本管制和银行兑付尾部风险。"},
+
+  {"case_id":"ASIA_1997_FINANCIAL_CRISIS","name":"亚洲金融危机 1997","period":"1997-1998","category":"货币汇率与外债危机","crisis_type":["货币危机","银行危机","短期外债","资本外逃"],"similarity_score":42,"summary":"中国有外储和资本管制缓冲，但该案例适合对照外债、汇率预期和资本流动压力。"},
+  {"case_id":"MEXICO_1994_PESO_CRISIS","name":"墨西哥 1994 比索危机","period":"1994-1995","category":"货币汇率与外债危机","crisis_type":["货币危机","短债压力","外储下降"],"similarity_score":28,"summary":"短期外币债、外储消耗和政策可信度下降共同触发货币危机。"},
+  {"case_id":"RUSSIA_1998_DEFAULT","name":"俄罗斯 1998 卢布危机","period":"1998","category":"货币汇率与外债危机","crisis_type":["国债违约","卢布贬值","商品价格冲击"],"similarity_score":20,"summary":"商品价格、财政、汇率和国债市场联动，是外部冲击型货币债务危机案例。"},
+  {"case_id":"TURKEY_2018_CURRENCY_CRISIS","name":"土耳其 2018 后里拉危机","period":"2018-2024","category":"货币汇率与外债危机","crisis_type":["货币贬值","高通胀","外币债务"],"similarity_score":18,"summary":"企业外币债、通胀和政策可信度问题相互强化，适合对照外币错配风险。"},
+
+  {"case_id":"EUROZONE_2009_SOVEREIGN_BANK_NEXUS","name":"欧债危机：主权—银行循环","period":"2009-2016","category":"主权债务与财政危机","crisis_type":["主权债务","银行风险","财政紧缩"],"similarity_score":70,"summary":"可类比中国地方财政、城投债和地方银行之间的风险循环，但中国有本币主权和中央协调能力。"},
+  {"case_id":"GREECE_2009_SOVEREIGN_DEBT_CRISIS","name":"希腊 2009 主权债务危机","period":"2009-2016","category":"主权债务与财政危机","crisis_type":["主权债务","财政紧缩","银行挤兑"],"similarity_score":36,"summary":"债务不可持续、财政紧缩和银行风险互相强化，是欧债危机核心样本。"},
+  {"case_id":"ARGENTINA_2001_CRISIS","name":"阿根廷 2001 崩盘","period":"1998-2002","category":"主权债务与财政危机","crisis_type":["债务违约","货币局崩溃","银行冻结"],"similarity_score":28,"summary":"极端尾部风险对照。中国不是美元化经济，也没有固定美元货币局制度。"},
+  {"case_id":"SRI_LANKA_2022_FX_CRISIS","name":"斯里兰卡 2022 外汇与债务危机","period":"2022-2023","category":"主权债务与财政危机","crisis_type":["外储枯竭","主权违约","进口短缺"],"similarity_score":16,"summary":"中国外储、经常账户和外部资产明显更强，该案例主要用于对照外汇安全边界。"},
+
+  {"case_id":"GERMANY_1923_HYPERINFLATION","name":"德国魏玛 1923 恶性通胀","period":"1921-1923","category":"恶性通胀与货币信用崩溃","crisis_type":["恶性通胀","货币信用崩溃","财政货币化"],"similarity_score":12,"summary":"中国当前更像需求不足和低通胀，不像恶性通胀；该案例用于监测极端货币路径。"},
+  {"case_id":"HUNGARY_1946_HYPERINFLATION","name":"匈牙利 1946 恶性通胀","period":"1945-1946","category":"恶性通胀与货币信用崩溃","crisis_type":["极端恶性通胀","战后财政崩溃"],"similarity_score":8,"summary":"历史上最极端恶性通胀样本之一，用于理解财政货币化失控的极限情景。"},
+  {"case_id":"ZIMBABWE_2007_HYPERINFLATION","name":"津巴布韦 2007-2009 恶性通胀","period":"2007-2009","category":"恶性通胀与货币信用崩溃","crisis_type":["恶性通胀","货币改革失败","产出崩溃"],"similarity_score":6,"summary":"现代恶性通胀极端案例，用于排除或监测极端货币信用路径。"},
+  {"case_id":"VENEZUELA_2016_COLLAPSE","name":"委内瑞拉 2016 后经济与货币崩溃","period":"2016-至今","category":"恶性通胀与货币信用崩溃","crisis_type":["恶性通胀","产出崩溃","资源依赖"],"similarity_score":10,"summary":"资源依赖、治理失败和货币崩溃叠加，是极端负面案例。"},
+
+  {"case_id":"CHINA_1940S_HYPERINFLATION","name":"中国 1940s 法币/金圆券恶性通胀","period":"1947-1949","category":"中国历史案例","crisis_type":["恶性通胀","货币改革失败","财政崩溃"],"similarity_score":8,"summary":"中国自身历史上的货币信用崩溃案例；当前不相似，但用于理解财政货币化的极端后果。"},
+  {"case_id":"CHINA_1990S_BANK_NPL_CLEANUP","name":"中国 1990s 银行不良资产处置","period":"1990s-2000s","category":"中国历史案例","crisis_type":["银行坏账","国企改革","资产管理公司"],"similarity_score":52,"summary":"中国曾经处理过大规模银行坏账和国企债务问题，可对照今天地产、城投和银行资产质量处理路径。"},
+  {"case_id":"CHINA_2015_STOCK_FX_PRESSURE","name":"中国 2015 股市与汇率压力","period":"2015-2016","category":"中国历史案例","crisis_type":["股市波动","汇率压力","资本流出"],"similarity_score":34,"summary":"用于对照资本流动、汇率预期和政策干预强度。"}
 ]
