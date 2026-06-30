@@ -1,0 +1,199 @@
+# 指标注册表 V0.1
+# 说明：这里定义未来 dashboard 的核心风险模块和指标方向。
+
+modules:
+  - module_id: real_estate
+    name: 房地产真实流动性
+    weight: 0.14
+    higher_is_worse: true
+    indicators:
+      - 二手房挂牌量
+      - 成交周期
+      - 降价房源比例
+      - 法拍房数量
+      - 法拍流拍率
+      - 开发商到位资金
+      - 居民中长期贷款
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - USA_2008_SUBPRIME_CRISIS
+      - SPAIN_2008_PROPERTY_BANKING_CRISIS
+
+  - module_id: local_fiscal
+    name: 地方财政与城投债
+    weight: 0.12
+    higher_is_worse: true
+    indicators:
+      - 土地出让收入
+      - 政府性基金收入
+      - 城投债利差
+      - 非标展期
+      - 工程款拖欠
+      - 政府采购收缩
+      - 公务员教师医生降薪舆情
+    history_cases:
+      - EUROZONE_2009_SOVEREIGN_BANK_NEXUS
+      - GREECE_2009_SOVEREIGN_DEBT_CRISIS
+
+  - module_id: banking
+    name: 银行资产质量
+    weight: 0.12
+    higher_is_worse: true
+    indicators:
+      - 银行净息差
+      - 不良贷款率
+      - 关注类贷款
+      - 不良迁徙率
+      - 拨备覆盖率
+      - 地产贷款敞口
+      - 城投平台敞口
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - SWEDEN_1991_BANKING_CRISIS
+      - USA_2008_SUBPRIME_CRISIS
+
+  - module_id: household
+    name: 居民资产负债表
+    weight: 0.10
+    higher_is_worse: true
+    indicators:
+      - 居民存款
+      - 居民短期贷款
+      - 居民中长期贷款
+      - 提前还贷
+      - 消费贷逾期
+      - 信用卡逾期
+      - 二手交易
+      - 黄金购买
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - USA_2008_SUBPRIME_CRISIS
+
+  - module_id: employment
+    name: 就业质量
+    weight: 0.10
+    higher_is_worse: true
+    indicators:
+      - 招聘岗位数
+      - 薪资中位数
+      - 应届生岗位
+      - 裁员舆情
+      - 灵活就业收入
+      - 社保缴纳人数
+      - 加班强度
+    history_cases:
+      - USA_1929_GREAT_DEPRESSION
+      - SPAIN_2008_PROPERTY_BANKING_CRISIS
+
+  - module_id: consumption
+    name: 消费降级
+    weight: 0.08
+    higher_is_worse: true
+    indicators:
+      - 社零
+      - 餐饮客单价
+      - 团购低价套餐
+      - 快消均价
+      - 折扣店份额
+      - 高端消费
+      - 二手交易
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - USA_2008_SUBPRIME_CRISIS
+
+  - module_id: corporate_cashflow
+    name: 企业利润与现金流
+    weight: 0.08
+    higher_is_worse: true
+    indicators:
+      - 毛利率
+      - 净利率
+      - 经营现金流
+      - 应收账款
+      - 库存
+      - 资本开支
+      - 注销和破产
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - ASIA_1997_FINANCIAL_CRISIS
+
+  - module_id: industry
+    name: 产能过剩与价格战
+    weight: 0.07
+    higher_is_worse: true
+    indicators:
+      - 新能源车库存和折扣
+      - 光伏组件价格
+      - 锂电产能利用率
+      - 钢铁利润
+      - 水泥出货率
+      - 化工价差
+      - 出口价格指数
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - ASIA_1997_FINANCIAL_CRISIS
+
+  - module_id: foreign_capital
+    name: 外资与资本信心
+    weight: 0.08
+    higher_is_worse: true
+    indicators:
+      - FDI 流入
+      - BOP 直接投资负债
+      - 证券投资流入流出
+      - 外资债券持仓
+      - 外企商会调查
+      - 跨国公司中国资本开支
+      - 供应链迁移
+    history_cases:
+      - ASIA_1997_FINANCIAL_CRISIS
+      - ARGENTINA_2001_CRISIS
+      - TURKEY_2018_CURRENCY_CRISIS
+
+  - module_id: trade
+    name: 国际贸易竞争力
+    weight: 0.05
+    higher_is_worse: true
+    indicators:
+      - 出口金额
+      - 出口数量
+      - 出口价格指数
+      - 主要市场份额
+      - 反倾销和关税
+      - 港口吞吐
+      - 集装箱运价
+    history_cases:
+      - FINLAND_1991_BANKING_CRISIS
+      - ASIA_1997_FINANCIAL_CRISIS
+
+  - module_id: social_pressure
+    name: 社会压力外溢
+    weight: 0.03
+    higher_is_worse: true
+    indicators:
+      - 欠薪投诉
+      - 劳动仲裁
+      - 破产案件
+      - 民间借贷纠纷
+      - 医保社保压力
+      - 婚育数据
+      - 移民留学咨询
+    history_cases:
+      - USA_1929_GREAT_DEPRESSION
+      - ARGENTINA_2001_CRISIS
+
+  - module_id: policy
+    name: 政策反应强度
+    weight: 0.03
+    higher_is_worse: context_dependent
+    indicators:
+      - 降准降息
+      - 地方债置换
+      - 保交楼
+      - 消费券
+      - 稳就业
+      - 稳外资
+      - 资本流动管理
+    history_cases:
+      - JAPAN_1990_BALANCE_SHEET_RECESSION
+      - EUROZONE_2009_SOVEREIGN_BANK_NEXUS
