@@ -1,0 +1,134 @@
+# 数据源注册表 V0.1
+# 说明：这里是未来所有动态数据源的总入口。public/data/sources.json 是前端可读版本；本文件是长期维护版本。
+
+sources:
+  - source_id: CN_OFFICIAL_MACRO
+    name: 官方宏观数据
+    category: official_macro
+    access_level: planned_fetcher
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.55
+    reliability: 0.55
+    bias_risk: official_smoothing
+    update_frequency: monthly
+    candidate_providers:
+      - National Bureau of Statistics of China
+      - PBOC
+      - SAFE
+      - Ministry of Finance
+    notes: 官方数据用于确定宏观边界，不能单独作为结论。
+
+  - source_id: CIVIL_COMMERCIAL_ALT_DATA
+    name: 民间商业替代数据
+    category: alternative_data
+    access_level: legal_review_required
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.75
+    reliability: 0.68
+    bias_risk: platform_noise_and_selection_bias
+    update_frequency: weekly
+    candidate_providers:
+      - Beike / Anjuke / CRIC / China Index Academy
+      - Ali Auction / JD Auction
+      - BOSS / Zhaopin / Liepin / Maimai
+      - Meituan / Dianping / Douyin group buying
+      - Manbang / freight / port indicators
+    notes: 必须做合法性、隐私、反爬和服务条款审查。
+
+  - source_id: FOREIGN_CAPITAL_FLOW
+    name: 外资与资本流动
+    category: foreign_capital
+    access_level: planned_fetcher
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.8
+    reliability: 0.76
+    bias_risk: channel_fund_and_reinvestment_distortion
+    update_frequency: monthly_quarterly
+    candidate_providers:
+      - SAFE BOP/IIP
+      - MOFCOM FDI
+      - UNCTAD
+      - AmCham / EU Chamber / JETRO
+      - company annual reports
+    notes: 外资数据敏感但仍有口径偏差，需要多口径交叉验证。
+
+  - source_id: CORPORATE_FINANCIALS
+    name: 企业利润与现金流
+    category: corporate_financials
+    access_level: planned_fetcher
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.72
+    reliability: 0.72
+    bias_risk: listed_company_survivorship_bias
+    update_frequency: quarterly
+    candidate_providers:
+      - AkShare
+      - Tushare
+      - Baostock
+      - exchange filings
+      - bankruptcy and enterprise registration data
+    notes: 重点看利润率、经营现金流、应收账款、库存、资本开支。
+
+  - source_id: DEBT_CREDIT_MARKET
+    name: 债务与信用市场
+    category: credit_market
+    access_level: planned_fetcher
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.82
+    reliability: 0.78
+    bias_risk: hidden_rollover_and_delayed_loss_recognition
+    update_frequency: weekly_monthly
+    candidate_providers:
+      - PBOC
+      - bond market data
+      - bank financial reports
+      - AkShare / Tushare
+    notes: 重点看城投债利差、违约、展期、银行净息差和不良迁徙率。
+
+  - source_id: HISTORICAL_CRISIS_CASES
+    name: 历史危机案例库
+    category: historical_cases
+    access_level: manual_dataset
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: false
+    confidence_weight: 0.5
+    reliability: 0.8
+    bias_risk: comparability_limit
+    update_frequency: manual
+    candidate_providers:
+      - Reinhart-Rogoff
+      - Laeven-Valencia
+      - JST Macrohistory Database
+      - IMF / BIS / World Bank
+      - academic papers
+    notes: 历史案例不直接进入总风险分，而是用于相似度比较。
+
+  - source_id: POLICY_REACTION
+    name: 政策反应强度
+    category: policy
+    access_level: planned_manual_or_fetcher
+    enabled: true
+    visible_in_dashboard: true
+    included_in_score: true
+    confidence_weight: 0.6
+    reliability: 0.65
+    bias_risk: policy_signal_ambiguity
+    update_frequency: weekly_monthly
+    candidate_providers:
+      - State Council
+      - PBOC
+      - MOF
+      - NDRC
+      - local government announcements
+    notes: 政策强度本身是压力信号，但也可能是托底能力信号。
