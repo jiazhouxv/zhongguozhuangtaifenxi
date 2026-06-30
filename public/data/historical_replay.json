@@ -1,0 +1,233 @@
+{
+  "version": "v0.1.2",
+  "status": "sample_sourced_placeholder",
+  "warning": "本文件用于验证历史事件回溯功能。当前只放入日本 1990 资产泡沫破裂的结构化样例和来源框架；正式评分前必须接入真实时间序列并完成来源审计。",
+  "checkpoints": ["20y", "10y", "5y", "3y", "2y", "1y", "6m", "3m", "1m", "event", "1y_after", "3y_after", "5y_after"],
+  "events": [
+    {
+      "event_id": "JAPAN_1990_BALANCE_SHEET_RECESSION",
+      "name": "日本 1990 资产泡沫破裂 / 资产负债表衰退",
+      "event_date": "1989-12-29",
+      "analysis_note": "以日经 225 在 1989 年底见顶作为金融市场拐点锚点；房地产、土地价格、银行坏账和资产负债表衰退在随后数年持续展开。",
+      "data_status": "sample_sourced_placeholder",
+      "source_basis": [
+        "Jordà-Schularick-Taylor Macrohistory Database：长期房价、信贷和宏观金融变量",
+        "World Bank / OECD：GDP、通胀、投资、消费等宏观时间序列",
+        "Bank of Japan：政策利率、金融系统和货币统计",
+        "IMF Article IV / WEO：宏观评估与金融稳定背景",
+        "Nikkei / exchange historical data：日经 225 指数历史数据",
+        "Richard Koo：日本资产负债表衰退研究框架"
+      ],
+      "headline": "如果把同一套监测逻辑回放到日本 1990 前夕，房地产/资产价格、信贷、居民企业资产负债表、银行风险、低通胀压力会逐步升温。",
+      "timeline": [
+        {
+          "checkpoint": "5y",
+          "date": "1984-12-31",
+          "label": "危机前 5 年",
+          "scores": {
+            "real_estate": 44,
+            "local_fiscal": 28,
+            "banking": 34,
+            "household": 30,
+            "employment": 20,
+            "consumption": 24,
+            "corporate_cashflow": 30,
+            "industry": 28,
+            "foreign_capital": 18,
+            "trade": 22,
+            "social_pressure": 15,
+            "policy": 25
+          },
+          "signals": [
+            "金融自由化和资产价格上行开始增强。",
+            "信贷和土地价格进入上行周期，但系统性危机尚不明显。"
+          ]
+        },
+        {
+          "checkpoint": "3y",
+          "date": "1986-12-31",
+          "label": "危机前 3 年",
+          "scores": {
+            "real_estate": 58,
+            "local_fiscal": 32,
+            "banking": 42,
+            "household": 38,
+            "employment": 22,
+            "consumption": 30,
+            "corporate_cashflow": 42,
+            "industry": 35,
+            "foreign_capital": 20,
+            "trade": 26,
+            "social_pressure": 16,
+            "policy": 35
+          },
+          "signals": [
+            "资产价格和信贷扩张加速。",
+            "房地产和股票资产财富效应增强。"
+          ]
+        },
+        {
+          "checkpoint": "2y",
+          "date": "1987-12-31",
+          "label": "危机前 2 年",
+          "scores": {
+            "real_estate": 68,
+            "local_fiscal": 36,
+            "banking": 52,
+            "household": 46,
+            "employment": 24,
+            "consumption": 36,
+            "corporate_cashflow": 50,
+            "industry": 40,
+            "foreign_capital": 24,
+            "trade": 28,
+            "social_pressure": 18,
+            "policy": 42
+          },
+          "signals": [
+            "资产价格泡沫特征更明显。",
+            "银行体系对房地产和资产抵押品的依赖上升。"
+          ]
+        },
+        {
+          "checkpoint": "1y",
+          "date": "1988-12-31",
+          "label": "危机前 1 年",
+          "scores": {
+            "real_estate": 78,
+            "local_fiscal": 40,
+            "banking": 62,
+            "household": 55,
+            "employment": 25,
+            "consumption": 42,
+            "corporate_cashflow": 58,
+            "industry": 45,
+            "foreign_capital": 28,
+            "trade": 30,
+            "social_pressure": 20,
+            "policy": 50
+          },
+          "signals": [
+            "股票和土地价格风险已经处于高位。",
+            "泡沫期信贷、抵押物估值和资产价格互相强化。"
+          ]
+        },
+        {
+          "checkpoint": "6m",
+          "date": "1989-06-30",
+          "label": "危机前 6 个月",
+          "scores": {
+            "real_estate": 86,
+            "local_fiscal": 42,
+            "banking": 70,
+            "household": 60,
+            "employment": 25,
+            "consumption": 48,
+            "corporate_cashflow": 64,
+            "industry": 48,
+            "foreign_capital": 30,
+            "trade": 32,
+            "social_pressure": 22,
+            "policy": 62
+          },
+          "signals": [
+            "日本央行开始收紧货币环境，泡沫资产对利率变化更敏感。",
+            "市场价格仍可能继续上涨，但脆弱性已经显著上升。"
+          ]
+        },
+        {
+          "checkpoint": "event",
+          "date": "1989-12-29",
+          "label": "金融市场拐点",
+          "scores": {
+            "real_estate": 92,
+            "local_fiscal": 45,
+            "banking": 78,
+            "household": 66,
+            "employment": 28,
+            "consumption": 52,
+            "corporate_cashflow": 70,
+            "industry": 50,
+            "foreign_capital": 32,
+            "trade": 34,
+            "social_pressure": 25,
+            "policy": 70
+          },
+          "signals": [
+            "日经 225 在 1989 年底见顶，随后进入长期下行。",
+            "房地产和银行坏账问题在随后的多年逐渐显性化。"
+          ]
+        },
+        {
+          "checkpoint": "1y_after",
+          "date": "1990-12-31",
+          "label": "危机后 1 年",
+          "scores": {
+            "real_estate": 88,
+            "local_fiscal": 52,
+            "banking": 84,
+            "household": 74,
+            "employment": 34,
+            "consumption": 60,
+            "corporate_cashflow": 78,
+            "industry": 56,
+            "foreign_capital": 35,
+            "trade": 38,
+            "social_pressure": 32,
+            "policy": 76
+          },
+          "signals": [
+            "股票资产缩水和房地产拐点开始影响资产负债表。",
+            "银行资产质量压力和私人部门降杠杆逐步显现。"
+          ]
+        },
+        {
+          "checkpoint": "3y_after",
+          "date": "1992-12-31",
+          "label": "危机后 3 年",
+          "scores": {
+            "real_estate": 84,
+            "local_fiscal": 62,
+            "banking": 90,
+            "household": 82,
+            "employment": 48,
+            "consumption": 72,
+            "corporate_cashflow": 86,
+            "industry": 65,
+            "foreign_capital": 38,
+            "trade": 44,
+            "social_pressure": 45,
+            "policy": 85
+          },
+          "signals": [
+            "资产负债表衰退特征更清晰：私人部门更重视修复资产负债表。",
+            "银行坏账和低增长压力进入持久化阶段。"
+          ]
+        },
+        {
+          "checkpoint": "5y_after",
+          "date": "1994-12-31",
+          "label": "危机后 5 年",
+          "scores": {
+            "real_estate": 78,
+            "local_fiscal": 70,
+            "banking": 88,
+            "household": 80,
+            "employment": 58,
+            "consumption": 74,
+            "corporate_cashflow": 84,
+            "industry": 68,
+            "foreign_capital": 40,
+            "trade": 48,
+            "social_pressure": 54,
+            "policy": 88
+          },
+          "signals": [
+            "泡沫破裂后的慢性修复延续。",
+            "财政和金融系统开始承担更长期的托底和坏账处理压力。"
+          ]
+        }
+      ]
+    }
+  ]
+}
