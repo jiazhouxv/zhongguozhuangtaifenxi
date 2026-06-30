@@ -1,0 +1,82 @@
+[
+  {
+    "preset_id": "balanced_research",
+    "name": "均衡研究模式",
+    "description": "适合日常总览。官方、民间、外资、债务、企业、政策都保留中等权重，避免单一数据源支配结论。",
+    "basis": "多源交叉验证原则：官方数据给边界，民间数据看真实交易，外资看资本信心，债务和企业现金流看金融传导。",
+    "weights": {
+      "CN_OFFICIAL_MACRO": 0.55,
+      "CIVIL_COMMERCIAL_ALT_DATA": 0.75,
+      "PUBLIC_SENTIMENT_MONITOR": 0.55,
+      "FOREIGN_CAPITAL_FLOW": 0.80,
+      "CORPORATE_FINANCIALS": 0.72,
+      "DEBT_CREDIT_MARKET": 0.82,
+      "HISTORICAL_CRISIS_CASES": 0.50,
+      "POLICY_REACTION": 0.60
+    }
+  },
+  {
+    "preset_id": "official_baseline",
+    "name": "官方基线模式",
+    "description": "适合先看政策口径和宏观边界。提高官方数据和政策反应权重，降低舆情和民间噪音影响。",
+    "basis": "用于构建最低争议的官方基准线，但不能单独作为真实结论，必须与其他模式比较差异。",
+    "weights": {
+      "CN_OFFICIAL_MACRO": 0.90,
+      "CIVIL_COMMERCIAL_ALT_DATA": 0.45,
+      "PUBLIC_SENTIMENT_MONITOR": 0.25,
+      "FOREIGN_CAPITAL_FLOW": 0.65,
+      "CORPORATE_FINANCIALS": 0.60,
+      "DEBT_CREDIT_MARKET": 0.70,
+      "HISTORICAL_CRISIS_CASES": 0.35,
+      "POLICY_REACTION": 0.85
+    }
+  },
+  {
+    "preset_id": "market_capital_stress",
+    "name": "市场与资本压力模式",
+    "description": "适合观察外资撤退、债券压力、银行资产质量和企业现金流。提高外资、债务、企业财务权重。",
+    "basis": "历史金融危机通常先在资本流动、信用利差、银行利润、企业现金流中显现，早于总量 GDP。",
+    "weights": {
+      "CN_OFFICIAL_MACRO": 0.45,
+      "CIVIL_COMMERCIAL_ALT_DATA": 0.60,
+      "PUBLIC_SENTIMENT_MONITOR": 0.35,
+      "FOREIGN_CAPITAL_FLOW": 1.00,
+      "CORPORATE_FINANCIALS": 0.95,
+      "DEBT_CREDIT_MARKET": 1.00,
+      "HISTORICAL_CRISIS_CASES": 0.60,
+      "POLICY_REACTION": 0.55
+    }
+  },
+  {
+    "preset_id": "household_livelihood",
+    "name": "民生压力模式",
+    "description": "适合观察就业、消费降级、居民资产负债表和社会压力。提高民间商业数据、民众情绪、居民相关指标权重。",
+    "basis": "日本式资产负债表衰退和需求不足，往往先表现为居民谨慎、消费降级、就业质量下降和防御性储蓄。",
+    "weights": {
+      "CN_OFFICIAL_MACRO": 0.50,
+      "CIVIL_COMMERCIAL_ALT_DATA": 1.00,
+      "PUBLIC_SENTIMENT_MONITOR": 0.95,
+      "FOREIGN_CAPITAL_FLOW": 0.45,
+      "CORPORATE_FINANCIALS": 0.75,
+      "DEBT_CREDIT_MARKET": 0.70,
+      "HISTORICAL_CRISIS_CASES": 0.55,
+      "POLICY_REACTION": 0.50
+    }
+  },
+  {
+    "preset_id": "balance_sheet_recession",
+    "name": "资产负债表衰退模式",
+    "description": "适合专门验证中国是否接近日本 1990s。提高房地产、居民、债务、银行、历史案例相关数据权重。",
+    "basis": "资产负债表衰退的核心不是缺钱，而是居民、企业和银行同时修复资产负债表，导致贷款、消费和投资意愿下降。",
+    "weights": {
+      "CN_OFFICIAL_MACRO": 0.55,
+      "CIVIL_COMMERCIAL_ALT_DATA": 0.90,
+      "PUBLIC_SENTIMENT_MONITOR": 0.75,
+      "FOREIGN_CAPITAL_FLOW": 0.55,
+      "CORPORATE_FINANCIALS": 0.85,
+      "DEBT_CREDIT_MARKET": 1.00,
+      "HISTORICAL_CRISIS_CASES": 0.85,
+      "POLICY_REACTION": 0.65
+    }
+  }
+]
