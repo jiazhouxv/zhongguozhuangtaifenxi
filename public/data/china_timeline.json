@@ -1,0 +1,127 @@
+{
+  "version": "v0.1.5-sample",
+  "status": "sample_placeholder",
+  "warning": "本文件用于让中国当前状态像历史案例一样支持时间节点切换。当前为样例时间线；正式版需要接入真实历史数据并自动计算。",
+  "event_id": "CHINA_CURRENT_STATE_TIMELINE",
+  "name": "中国当前状态时间节点",
+  "default_checkpoint": "2026_06_30",
+  "timeline": [
+    {
+      "checkpoint": "2021_12_31",
+      "date": "2021-12-31",
+      "label": "2021 年底",
+      "scores": {
+        "real_estate": 58,
+        "local_fiscal": 48,
+        "banking": 45,
+        "household": 42,
+        "employment": 40,
+        "consumption": 38,
+        "corporate_cashflow": 44,
+        "industry": 42,
+        "foreign_capital": 36,
+        "trade": 32,
+        "social_pressure": 34,
+        "policy": 42,
+        "entity_activity": 40,
+        "project_activity": 46
+      },
+      "signals": ["房地产链条开始转弱", "居民和开发商预期开始分化", "出口仍有支撑"]
+    },
+    {
+      "checkpoint": "2022_12_31",
+      "date": "2022-12-31",
+      "label": "2022 年底",
+      "scores": {
+        "real_estate": 72,
+        "local_fiscal": 62,
+        "banking": 56,
+        "household": 60,
+        "employment": 58,
+        "consumption": 62,
+        "corporate_cashflow": 60,
+        "industry": 55,
+        "foreign_capital": 48,
+        "trade": 44,
+        "social_pressure": 58,
+        "policy": 66,
+        "entity_activity": 62,
+        "project_activity": 60
+      },
+      "signals": ["房地产销售和土地财政压力更明显", "居民消费和就业压力上升", "政策托底强度增加"]
+    },
+    {
+      "checkpoint": "2023_12_31",
+      "date": "2023-12-31",
+      "label": "2023 年底",
+      "scores": {
+        "real_estate": 80,
+        "local_fiscal": 70,
+        "banking": 64,
+        "household": 68,
+        "employment": 66,
+        "consumption": 69,
+        "corporate_cashflow": 67,
+        "industry": 64,
+        "foreign_capital": 61,
+        "trade": 52,
+        "social_pressure": 66,
+        "policy": 72,
+        "entity_activity": 70,
+        "project_activity": 68
+      },
+      "signals": ["房地产和地方财政链条继续承压", "民间投资与居民信心偏弱", "外资和供应链再配置讨论升温"]
+    },
+    {
+      "checkpoint": "2024_12_31",
+      "date": "2024-12-31",
+      "label": "2024 年底",
+      "scores": {
+        "real_estate": 82,
+        "local_fiscal": 74,
+        "banking": 68,
+        "household": 72,
+        "employment": 70,
+        "consumption": 72,
+        "corporate_cashflow": 69,
+        "industry": 70,
+        "foreign_capital": 66,
+        "trade": 56,
+        "social_pressure": 69,
+        "policy": 75,
+        "entity_activity": 74,
+        "project_activity": 72
+      },
+      "signals": ["低信心、低通胀和资产负债表修复特征增强", "产能过剩和价格战压力上升", "工程和实体经营活跃度需要重点验证"]
+    },
+    {
+      "checkpoint": "2025_12_31",
+      "date": "2025-12-31",
+      "label": "2025 年底",
+      "scores": {
+        "real_estate": 83,
+        "local_fiscal": 76,
+        "banking": 70,
+        "household": 75,
+        "employment": 72,
+        "consumption": 74,
+        "corporate_cashflow": 70,
+        "industry": 72,
+        "foreign_capital": 70,
+        "trade": 58,
+        "social_pressure": 71,
+        "policy": 76,
+        "entity_activity": 76,
+        "project_activity": 74
+      },
+      "signals": ["样例显示房地产、地方财政、居民资产负债表和实体经营压力持续高位", "需要真实数据确认是否进入日本式慢性修复"]
+    },
+    {
+      "checkpoint": "2026_06_30",
+      "date": "2026-06-30",
+      "label": "2026-06-30 当前",
+      "scores": null,
+      "signals": ["当前节点使用 Dashboard 实时样例分数，受数据源启用状态和权重预设影响", "后续真实数据接入后将改为自动计算"]
+    }
+  ]
+}
