@@ -1,0 +1,49 @@
+# 风险评分模型 V0.1
+# 说明：V0.1 采用透明加权模型，不使用黑箱机器学习。
+
+model:
+  model_id: TRANSPARENT_WEIGHTED_RISK_SCORE_V01
+  name: 透明加权风险评分模型
+  version: v0.1
+  status: prototype
+  score_range: [0, 100]
+  principle:
+    - 模块分数由启用且纳入评分的数据源信号加权得到。
+    - 总风险分由模块分数和模块权重加权得到。
+    - 隐藏数据源只影响展示；禁用数据源或取消纳入评分才影响结果。
+    - 历史案例相似度暂不直接进入总风险分，只作为对照层。
+
+calculation:
+  module_score: |
+    module_score = sum(signal_score * signal_weight * source_weight * source_reliability)
+                   / sum(signal_weight * source_weight * source_reliability)
+  total_score: |
+    total_score = sum(module_score * module_weight) / sum(module_weight)
+
+score_bands:
+  - min: 0
+    max: 24
+    label: 低风险
+  - min: 25
+    max: 49
+    label: 中低风险
+  - min: 50
+    max: 74
+    label: 中高风险
+  - min: 75
+    max: 100
+    label: 高风险
+
+known_limits:
+  - 当前没有真实动态抓取数据。
+  - 当前分数是样例数据，不是正式判断。
+  - 未来需要为每个指标建立历史分位数、同比、环比和阈值。
+  - 未来需要区分信号强度、数据可信度、数据时效性和偏差风险。
+  - 政策反应强度的解释具有双重性，既可能说明压力上升，也可能说明托底能力增强。
+
+next_steps:
+  - 建立每个指标的真实计算公式。
+  - 增加数据过期惩罚。
+  - 增加数据源冲突提示。
+  - 增加历史案例相似度向量模型。
+  - 增加每月风险变化归因。
