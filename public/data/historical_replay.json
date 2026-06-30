@@ -1,232 +1,135 @@
 {
-  "version": "v0.1.2",
+  "version": "v0.1.6",
   "status": "sample_sourced_placeholder",
-  "warning": "本文件用于验证历史事件回溯功能。当前只放入日本 1990 资产泡沫破裂的结构化样例和来源框架；正式评分前必须接入真实时间序列并完成来源审计。",
-  "checkpoints": ["20y", "10y", "5y", "3y", "2y", "1y", "6m", "3m", "1m", "event", "1y_after", "3y_after", "5y_after"],
+  "warning": "历史回溯用于验证同一套指标框架在危机爆发前是否会变红。当前为结构化样例框架，不可当作正式历史实证；正式版必须接入真实历史时间序列并完成来源审计。",
+  "checkpoints": ["5y", "3y", "1y", "6m", "event", "1y_after", "3y_after"],
   "events": [
     {
       "event_id": "JAPAN_1990_BALANCE_SHEET_RECESSION",
-      "name": "日本 1990 资产泡沫破裂 / 资产负债表衰退",
+      "name": "日本 1990 资产泡沫破裂",
+      "short_name": "日本1990",
       "event_date": "1989-12-29",
-      "analysis_note": "以日经 225 在 1989 年底见顶作为金融市场拐点锚点；房地产、土地价格、银行坏账和资产负债表衰退在随后数年持续展开。",
+      "category": "房地产泡沫 / 资产负债表衰退",
       "data_status": "sample_sourced_placeholder",
-      "source_basis": [
-        "Jordà-Schularick-Taylor Macrohistory Database：长期房价、信贷和宏观金融变量",
-        "World Bank / OECD：GDP、通胀、投资、消费等宏观时间序列",
-        "Bank of Japan：政策利率、金融系统和货币统计",
-        "IMF Article IV / WEO：宏观评估与金融稳定背景",
-        "Nikkei / exchange historical data：日经 225 指数历史数据",
-        "Richard Koo：日本资产负债表衰退研究框架"
-      ],
-      "headline": "如果把同一套监测逻辑回放到日本 1990 前夕，房地产/资产价格、信贷、居民企业资产负债表、银行风险、低通胀压力会逐步升温。",
+      "headline": "房地产、股票、信贷和银行资产质量风险在危机前数年逐步升温。",
       "timeline": [
-        {
-          "checkpoint": "5y",
-          "date": "1984-12-31",
-          "label": "危机前 5 年",
-          "scores": {
-            "real_estate": 44,
-            "local_fiscal": 28,
-            "banking": 34,
-            "household": 30,
-            "employment": 20,
-            "consumption": 24,
-            "corporate_cashflow": 30,
-            "industry": 28,
-            "foreign_capital": 18,
-            "trade": 22,
-            "social_pressure": 15,
-            "policy": 25
-          },
-          "signals": [
-            "金融自由化和资产价格上行开始增强。",
-            "信贷和土地价格进入上行周期，但系统性危机尚不明显。"
-          ]
-        },
-        {
-          "checkpoint": "3y",
-          "date": "1986-12-31",
-          "label": "危机前 3 年",
-          "scores": {
-            "real_estate": 58,
-            "local_fiscal": 32,
-            "banking": 42,
-            "household": 38,
-            "employment": 22,
-            "consumption": 30,
-            "corporate_cashflow": 42,
-            "industry": 35,
-            "foreign_capital": 20,
-            "trade": 26,
-            "social_pressure": 16,
-            "policy": 35
-          },
-          "signals": [
-            "资产价格和信贷扩张加速。",
-            "房地产和股票资产财富效应增强。"
-          ]
-        },
-        {
-          "checkpoint": "2y",
-          "date": "1987-12-31",
-          "label": "危机前 2 年",
-          "scores": {
-            "real_estate": 68,
-            "local_fiscal": 36,
-            "banking": 52,
-            "household": 46,
-            "employment": 24,
-            "consumption": 36,
-            "corporate_cashflow": 50,
-            "industry": 40,
-            "foreign_capital": 24,
-            "trade": 28,
-            "social_pressure": 18,
-            "policy": 42
-          },
-          "signals": [
-            "资产价格泡沫特征更明显。",
-            "银行体系对房地产和资产抵押品的依赖上升。"
-          ]
-        },
-        {
-          "checkpoint": "1y",
-          "date": "1988-12-31",
-          "label": "危机前 1 年",
-          "scores": {
-            "real_estate": 78,
-            "local_fiscal": 40,
-            "banking": 62,
-            "household": 55,
-            "employment": 25,
-            "consumption": 42,
-            "corporate_cashflow": 58,
-            "industry": 45,
-            "foreign_capital": 28,
-            "trade": 30,
-            "social_pressure": 20,
-            "policy": 50
-          },
-          "signals": [
-            "股票和土地价格风险已经处于高位。",
-            "泡沫期信贷、抵押物估值和资产价格互相强化。"
-          ]
-        },
-        {
-          "checkpoint": "6m",
-          "date": "1989-06-30",
-          "label": "危机前 6 个月",
-          "scores": {
-            "real_estate": 86,
-            "local_fiscal": 42,
-            "banking": 70,
-            "household": 60,
-            "employment": 25,
-            "consumption": 48,
-            "corporate_cashflow": 64,
-            "industry": 48,
-            "foreign_capital": 30,
-            "trade": 32,
-            "social_pressure": 22,
-            "policy": 62
-          },
-          "signals": [
-            "日本央行开始收紧货币环境，泡沫资产对利率变化更敏感。",
-            "市场价格仍可能继续上涨，但脆弱性已经显著上升。"
-          ]
-        },
-        {
-          "checkpoint": "event",
-          "date": "1989-12-29",
-          "label": "金融市场拐点",
-          "scores": {
-            "real_estate": 92,
-            "local_fiscal": 45,
-            "banking": 78,
-            "household": 66,
-            "employment": 28,
-            "consumption": 52,
-            "corporate_cashflow": 70,
-            "industry": 50,
-            "foreign_capital": 32,
-            "trade": 34,
-            "social_pressure": 25,
-            "policy": 70
-          },
-          "signals": [
-            "日经 225 在 1989 年底见顶，随后进入长期下行。",
-            "房地产和银行坏账问题在随后的多年逐渐显性化。"
-          ]
-        },
-        {
-          "checkpoint": "1y_after",
-          "date": "1990-12-31",
-          "label": "危机后 1 年",
-          "scores": {
-            "real_estate": 88,
-            "local_fiscal": 52,
-            "banking": 84,
-            "household": 74,
-            "employment": 34,
-            "consumption": 60,
-            "corporate_cashflow": 78,
-            "industry": 56,
-            "foreign_capital": 35,
-            "trade": 38,
-            "social_pressure": 32,
-            "policy": 76
-          },
-          "signals": [
-            "股票资产缩水和房地产拐点开始影响资产负债表。",
-            "银行资产质量压力和私人部门降杠杆逐步显现。"
-          ]
-        },
-        {
-          "checkpoint": "3y_after",
-          "date": "1992-12-31",
-          "label": "危机后 3 年",
-          "scores": {
-            "real_estate": 84,
-            "local_fiscal": 62,
-            "banking": 90,
-            "household": 82,
-            "employment": 48,
-            "consumption": 72,
-            "corporate_cashflow": 86,
-            "industry": 65,
-            "foreign_capital": 38,
-            "trade": 44,
-            "social_pressure": 45,
-            "policy": 85
-          },
-          "signals": [
-            "资产负债表衰退特征更清晰：私人部门更重视修复资产负债表。",
-            "银行坏账和低增长压力进入持久化阶段。"
-          ]
-        },
-        {
-          "checkpoint": "5y_after",
-          "date": "1994-12-31",
-          "label": "危机后 5 年",
-          "scores": {
-            "real_estate": 78,
-            "local_fiscal": 70,
-            "banking": 88,
-            "household": 80,
-            "employment": 58,
-            "consumption": 74,
-            "corporate_cashflow": 84,
-            "industry": 68,
-            "foreign_capital": 40,
-            "trade": 48,
-            "social_pressure": 54,
-            "policy": 88
-          },
-          "signals": [
-            "泡沫破裂后的慢性修复延续。",
-            "财政和金融系统开始承担更长期的托底和坏账处理压力。"
-          ]
-        }
+        {"checkpoint":"5y","date":"1984-12-31","label":"危机前5年","scores":{"real_estate":44,"banking":34,"household":30,"corporate_cashflow":30,"policy":25,"local_fiscal":28},"signals":["资产价格和信贷进入上行周期","系统性风险尚不明显"]},
+        {"checkpoint":"3y","date":"1986-12-31","label":"危机前3年","scores":{"real_estate":58,"banking":42,"household":38,"corporate_cashflow":42,"policy":35,"local_fiscal":32},"signals":["资产泡沫加速","房地产和股票财富效应增强"]},
+        {"checkpoint":"1y","date":"1988-12-31","label":"危机前1年","scores":{"real_estate":78,"banking":62,"household":55,"corporate_cashflow":58,"policy":50,"local_fiscal":40},"signals":["土地和股票估值高位","银行抵押品依赖增强"]},
+        {"checkpoint":"6m","date":"1989-06-30","label":"危机前6个月","scores":{"real_estate":86,"banking":70,"household":60,"corporate_cashflow":64,"policy":62,"local_fiscal":42},"signals":["货币环境收紧","泡沫资产对利率变化更敏感"]},
+        {"checkpoint":"event","date":"1989-12-29","label":"金融市场拐点","scores":{"real_estate":92,"banking":78,"household":66,"corporate_cashflow":70,"policy":70,"local_fiscal":45},"signals":["日经225见顶","房地产和银行坏账在随后多年显性化"]},
+        {"checkpoint":"1y_after","date":"1990-12-31","label":"危机后1年","scores":{"real_estate":88,"banking":84,"household":74,"corporate_cashflow":78,"policy":76,"local_fiscal":52},"signals":["股票缩水和地产拐点损伤资产负债表","银行资产质量压力上升"]},
+        {"checkpoint":"3y_after","date":"1992-12-31","label":"危机后3年","scores":{"real_estate":84,"banking":90,"household":82,"corporate_cashflow":86,"policy":85,"local_fiscal":62},"signals":["资产负债表衰退特征清晰","私人部门转向降杠杆"]}
+      ]
+    },
+    {
+      "event_id": "USA_2008_SUBPRIME_CRISIS",
+      "name": "美国 2008 次贷危机",
+      "short_name": "美国2008",
+      "event_date": "2008-09-15",
+      "category": "房地产泡沫 / 银行与影子银行危机",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "房价、家庭杠杆、次贷证券化和金融机构杠杆在危机前持续积累。",
+      "timeline": [
+        {"checkpoint":"5y","date":"2003-09-15","label":"危机前5年","scores":{"real_estate":55,"banking":42,"household":50,"corporate_cashflow":35,"foreign_capital":30,"policy":30},"signals":["房价和按揭扩张加速","家庭杠杆上升"]},
+        {"checkpoint":"3y","date":"2005-09-15","label":"危机前3年","scores":{"real_estate":72,"banking":58,"household":66,"corporate_cashflow":45,"foreign_capital":38,"policy":42},"signals":["房价泡沫和次贷扩张明显","证券化链条风险增加"]},
+        {"checkpoint":"1y","date":"2007-09-15","label":"危机前1年","scores":{"real_estate":86,"banking":75,"household":78,"corporate_cashflow":60,"foreign_capital":55,"policy":62},"signals":["房价下行和次贷违约暴露","金融机构融资压力上升"]},
+        {"checkpoint":"6m","date":"2008-03-15","label":"危机前6个月","scores":{"real_estate":90,"banking":84,"household":82,"corporate_cashflow":66,"foreign_capital":65,"policy":75},"signals":["贝尔斯登事件暴露流动性危机","银行和影子银行风险加速传导"]},
+        {"checkpoint":"event","date":"2008-09-15","label":"雷曼破产","scores":{"real_estate":94,"banking":96,"household":86,"corporate_cashflow":78,"foreign_capital":80,"policy":88},"signals":["雷曼破产触发全球金融危机","信用市场急冻"]},
+        {"checkpoint":"1y_after","date":"2009-09-15","label":"危机后1年","scores":{"real_estate":88,"banking":82,"household":84,"corporate_cashflow":76,"foreign_capital":70,"policy":92},"signals":["大规模救助和量化宽松","失业和去杠杆延续"]}
+      ]
+    },
+    {
+      "event_id": "ASIA_1997_FINANCIAL_CRISIS",
+      "name": "亚洲金融危机 1997",
+      "short_name": "亚洲1997",
+      "event_date": "1997-07-02",
+      "category": "货币危机 / 外债 / 银行危机",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "固定汇率、短期外债、资本流入逆转和银行资产负债表错配在危机前累积。",
+      "timeline": [
+        {"checkpoint":"5y","date":"1992-07-02","label":"危机前5年","scores":{"foreign_capital":38,"banking":35,"real_estate":36,"trade":30,"corporate_cashflow":32,"policy":28},"signals":["资本流入和高速增长形成繁荣叙事","外部脆弱性开始累积"]},
+        {"checkpoint":"3y","date":"1994-07-02","label":"危机前3年","scores":{"foreign_capital":56,"banking":48,"real_estate":50,"trade":42,"corporate_cashflow":44,"policy":38},"signals":["外债和地产金融扩张","固定汇率下风险被低估"]},
+        {"checkpoint":"1y","date":"1996-07-02","label":"危机前1年","scores":{"foreign_capital":76,"banking":68,"real_estate":70,"trade":60,"corporate_cashflow":62,"policy":56},"signals":["经常账户和短债压力显现","资本流动预期转弱"]},
+        {"checkpoint":"6m","date":"1997-01-02","label":"危机前6个月","scores":{"foreign_capital":86,"banking":78,"real_estate":76,"trade":66,"corporate_cashflow":70,"policy":68},"signals":["汇率防守压力加大","金融机构外币错配风险升温"]},
+        {"checkpoint":"event","date":"1997-07-02","label":"泰铢放弃盯住美元","scores":{"foreign_capital":95,"banking":88,"real_estate":84,"trade":76,"corporate_cashflow":82,"policy":84},"signals":["泰铢危机引爆区域传染","货币、银行和企业债务危机叠加"]}
+      ]
+    },
+    {
+      "event_id": "EUROZONE_2009_SOVEREIGN_BANK_NEXUS",
+      "name": "欧债危机 2009",
+      "short_name": "欧债2009",
+      "event_date": "2009-10-20",
+      "category": "主权债务 / 银行风险循环",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "财政赤字、主权债务、银行持债和经济衰退互相强化，形成主权—银行循环。",
+      "timeline": [
+        {"checkpoint":"5y","date":"2004-10-20","label":"危机前5年","scores":{"local_fiscal":42,"banking":34,"real_estate":38,"policy":28,"household":34,"foreign_capital":30},"signals":["欧元区低利率环境支持债务扩张","财政和银行风险尚未被充分定价"]},
+        {"checkpoint":"3y","date":"2006-10-20","label":"危机前3年","scores":{"local_fiscal":52,"banking":44,"real_estate":50,"policy":35,"household":42,"foreign_capital":36},"signals":["部分国家房地产和财政脆弱性上升","主权利差仍低估风险"]},
+        {"checkpoint":"1y","date":"2008-10-20","label":"危机前1年","scores":{"local_fiscal":72,"banking":68,"real_estate":64,"policy":60,"household":55,"foreign_capital":55},"signals":["全球金融危机冲击财政和银行","主权风险重新定价"]},
+        {"checkpoint":"event","date":"2009-10-20","label":"希腊赤字问题暴露","scores":{"local_fiscal":92,"banking":84,"real_estate":70,"policy":82,"household":68,"foreign_capital":76},"signals":["希腊财政赤字和债务可信度受质疑","欧债危机进入显性阶段"]},
+        {"checkpoint":"3y_after","date":"2012-10-20","label":"危机后3年","scores":{"local_fiscal":96,"banking":90,"real_estate":78,"policy":92,"household":80,"foreign_capital":84},"signals":["主权—银行循环和紧缩压力延续","失业和社会压力上升"]}
+      ]
+    },
+    {
+      "event_id": "ARGENTINA_2001_CRISIS",
+      "name": "阿根廷 2001 崩盘",
+      "short_name": "阿根廷2001",
+      "event_date": "2001-12-02",
+      "category": "债务违约 / 货币局崩溃 / 银行冻结",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "固定汇率、财政债务、外债和银行存款信心同时恶化，最终演化成三合一危机。",
+      "timeline": [
+        {"checkpoint":"5y","date":"1996-12-02","label":"危机前5年","scores":{"foreign_capital":45,"local_fiscal":48,"banking":40,"household":36,"policy":35,"corporate_cashflow":38},"signals":["货币局制度维持信心","债务和增长质量隐患累积"]},
+        {"checkpoint":"3y","date":"1998-12-02","label":"危机前3年","scores":{"foreign_capital":62,"local_fiscal":62,"banking":55,"household":50,"policy":48,"corporate_cashflow":54},"signals":["经济衰退压力上升","债务滚续依赖外部信心"]},
+        {"checkpoint":"1y","date":"2000-12-02","label":"危机前1年","scores":{"foreign_capital":82,"local_fiscal":78,"banking":72,"household":68,"policy":70,"corporate_cashflow":70},"signals":["资本外流和融资压力明显","固定汇率可信度下降"]},
+        {"checkpoint":"event","date":"2001-12-02","label":"存款冻结 / 危机爆发","scores":{"foreign_capital":96,"local_fiscal":95,"banking":96,"household":90,"policy":90,"corporate_cashflow":88},"signals":["银行冻结存款","主权违约和汇率制度崩溃临近"]}
+      ]
+    },
+    {
+      "event_id": "USA_1929_GREAT_DEPRESSION",
+      "name": "美国 1929 大萧条",
+      "short_name": "美国1929",
+      "event_date": "1929-10-29",
+      "category": "大萧条 / 银行危机 / 债务通缩",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "股市泡沫、信贷扩张、银行脆弱性和债务通缩机制共同放大衰退。",
+      "timeline": [
+        {"checkpoint":"5y","date":"1924-10-29","label":"危机前5年","scores":{"banking":35,"household":30,"corporate_cashflow":32,"policy":28,"real_estate":30,"social_pressure":18},"signals":["繁荣叙事增强","金融和股市扩张开始累积风险"]},
+        {"checkpoint":"3y","date":"1926-10-29","label":"危机前3年","scores":{"banking":46,"household":38,"corporate_cashflow":42,"policy":35,"real_estate":36,"social_pressure":22},"signals":["股市和信贷扩张加速","金融脆弱性上升"]},
+        {"checkpoint":"1y","date":"1928-10-29","label":"危机前1年","scores":{"banking":68,"household":56,"corporate_cashflow":60,"policy":52,"real_estate":50,"social_pressure":30},"signals":["投机和杠杆风险明显","货币政策与市场泡沫矛盾加剧"]},
+        {"checkpoint":"event","date":"1929-10-29","label":"股市崩盘","scores":{"banking":85,"household":72,"corporate_cashflow":78,"policy":70,"real_estate":65,"social_pressure":55},"signals":["股市崩盘触发信心危机","银行风险和债务通缩随后深化"]},
+        {"checkpoint":"3y_after","date":"1932-10-29","label":"危机后3年","scores":{"banking":96,"household":90,"corporate_cashflow":92,"policy":88,"real_estate":82,"social_pressure":92},"signals":["银行倒闭和失业达到极端水平","大萧条进入最深阶段"]}
+      ]
+    },
+    {
+      "event_id": "GERMANY_1923_HYPERINFLATION",
+      "name": "德国魏玛 1923 恶性通胀",
+      "short_name": "魏玛1923",
+      "event_date": "1923-11-15",
+      "category": "恶性通胀 / 货币信用崩溃",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "财政赤字货币化、战争赔款和货币信任崩溃将通胀推向极端。",
+      "timeline": [
+        {"checkpoint":"5y","date":"1918-11-15","label":"危机前5年","scores":{"policy":50,"local_fiscal":55,"household":45,"foreign_capital":40,"social_pressure":48,"banking":35},"signals":["战争财政遗留问题严重","货币信用开始受损"]},
+        {"checkpoint":"3y","date":"1920-11-15","label":"危机前3年","scores":{"policy":68,"local_fiscal":72,"household":62,"foreign_capital":58,"social_pressure":66,"banking":50},"signals":["财政压力与货币发行加剧","物价和汇率压力上升"]},
+        {"checkpoint":"1y","date":"1922-11-15","label":"危机前1年","scores":{"policy":88,"local_fiscal":90,"household":84,"foreign_capital":82,"social_pressure":86,"banking":70},"signals":["货币替代和价格失控临近","居民储蓄购买力严重受损"]},
+        {"checkpoint":"event","date":"1923-11-15","label":"恶性通胀高峰 / 货币改革","scores":{"policy":98,"local_fiscal":98,"household":96,"foreign_capital":96,"social_pressure":98,"banking":88},"signals":["本币信用崩溃","货币改革成为稳定前提"]}
+      ]
+    },
+    {
+      "event_id": "LEBANON_2019_BANKING_COLLAPSE",
+      "name": "黎巴嫩 2019 银行危机",
+      "short_name": "黎巴嫩2019",
+      "event_date": "2019-10-17",
+      "category": "银行冻结 / 汇率崩溃 / 存款损失",
+      "data_status": "sample_sourced_placeholder",
+      "headline": "银行、政府和汇率信心同步崩塌，存款人承担巨大损失。",
+      "timeline": [
+        {"checkpoint":"5y","date":"2014-10-17","label":"危机前5年","scores":{"banking":45,"foreign_capital":50,"local_fiscal":60,"policy":50,"household":42,"social_pressure":38},"signals":["财政和外部融资依赖增强","银行吸收存款支持系统运转"]},
+        {"checkpoint":"3y","date":"2016-10-17","label":"危机前3年","scores":{"banking":62,"foreign_capital":68,"local_fiscal":72,"policy":62,"household":55,"social_pressure":50},"signals":["外汇和银行系统脆弱性上升","高收益吸存依赖信心维持"]},
+        {"checkpoint":"1y","date":"2018-10-17","label":"危机前1年","scores":{"banking":82,"foreign_capital":84,"local_fiscal":86,"policy":78,"household":72,"social_pressure":68},"signals":["资本和存款信心恶化","汇率和银行流动性压力显性化"]},
+        {"checkpoint":"event","date":"2019-10-17","label":"危机爆发","scores":{"banking":98,"foreign_capital":96,"local_fiscal":94,"policy":90,"household":95,"social_pressure":96},"signals":["银行限制提款","汇率崩溃和社会压力爆发"]}
       ]
     }
   ]
