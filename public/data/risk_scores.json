@@ -1,0 +1,161 @@
+{
+  "as_of": "2026-06-30",
+  "version": "v0.1-sample",
+  "note": "当前为产品原型样例数据，用于验证可视化、数据源开关、权重和风险评分逻辑。不是正式研究结论。",
+  "modules": [
+    {
+      "module_id": "real_estate",
+      "name": "房地产真实流动性",
+      "module_weight": 0.14,
+      "trend": "up",
+      "summary": "重点观察挂牌、成交周期、降价比例、法拍、流拍、开发商资金、居民中长期贷款。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 78, "weight": 0.25, "label": "官方房地产投资、销售、新开工、资金到位压力"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 86, "weight": 0.45, "label": "挂牌、法拍、降价、成交周期等民间流动性压力"},
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 80, "weight": 0.2, "label": "按揭、开发贷、抵押物处置和银行敞口"},
+        {"source_id": "POLICY_REACTION", "score": 76, "weight": 0.1, "label": "保交楼、限购放松、房贷利率调整等政策强度"}
+      ]
+    },
+    {
+      "module_id": "local_fiscal",
+      "name": "地方财政与城投债",
+      "module_weight": 0.12,
+      "trend": "up",
+      "summary": "重点观察土地财政、政府性基金、城投利差、非标展期、工程款拖欠、公职人员降薪舆情。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 68, "weight": 0.25, "label": "财政收入、政府性基金和土地出让官方口径"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 78, "weight": 0.25, "label": "工程款拖欠、公务员降薪、地方财政舆情"},
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 82, "weight": 0.35, "label": "城投债利差、展期、地方平台融资压力"},
+        {"source_id": "POLICY_REACTION", "score": 72, "weight": 0.15, "label": "地方债置换、特别债、隐债化解政策"}
+      ]
+    },
+    {
+      "module_id": "banking",
+      "name": "银行资产质量",
+      "module_weight": 0.12,
+      "trend": "up",
+      "summary": "重点观察净息差、不良迁徙率、拨备覆盖率、地产和城投敞口、小银行压力。",
+      "signals": [
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 74, "weight": 0.5, "label": "不良、净息差、城投与地产信用压力"},
+        {"source_id": "CORPORATE_FINANCIALS", "score": 62, "weight": 0.2, "label": "企业现金流与应收账款对银行资产的传导"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 70, "weight": 0.2, "label": "抵押物处置、法拍和地方银行舆情"},
+        {"source_id": "HISTORICAL_CRISIS_CASES", "score": 65, "weight": 0.1, "label": "日本、北欧、美国 2008 的银行风险对照"}
+      ]
+    },
+    {
+      "module_id": "household",
+      "name": "居民资产负债表",
+      "module_weight": 0.10,
+      "trend": "up",
+      "summary": "重点观察居民存款、贷款、提前还贷、消费贷逾期、二手交易、黄金购买和购房意愿。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 68, "weight": 0.3, "label": "居民贷款、存款和消费官方口径"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 82, "weight": 0.4, "label": "断供、提前还贷、二手交易、消费降级舆情"},
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 74, "weight": 0.2, "label": "消费贷、信用卡、按揭和居民杠杆"},
+        {"source_id": "HISTORICAL_CRISIS_CASES", "score": 78, "weight": 0.1, "label": "日本式资产负债表衰退对照"}
+      ]
+    },
+    {
+      "module_id": "employment",
+      "name": "就业质量",
+      "module_weight": 0.10,
+      "trend": "up",
+      "summary": "重点观察招聘岗位、薪资中位数、应届生岗位、裁员、灵活就业收入和社保缴纳。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 58, "weight": 0.25, "label": "官方失业率和就业数据"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 78, "weight": 0.45, "label": "招聘平台、脉脉、小红书、外卖网约车收入"},
+        {"source_id": "CORPORATE_FINANCIALS", "score": 70, "weight": 0.2, "label": "企业降本、裁员和利润压力"},
+        {"source_id": "POLICY_REACTION", "score": 62, "weight": 0.1, "label": "稳就业、促就业政策强度"}
+      ]
+    },
+    {
+      "module_id": "consumption",
+      "name": "消费降级",
+      "module_weight": 0.08,
+      "trend": "up",
+      "summary": "重点观察客单价、低价渠道、团购、折扣店、快消均价、商铺关店和高端消费。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 60, "weight": 0.25, "label": "社零、餐饮、服务消费官方口径"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 80, "weight": 0.5, "label": "团购、低价渠道、平替、商铺转让、平台消费"},
+        {"source_id": "CORPORATE_FINANCIALS", "score": 66, "weight": 0.15, "label": "消费企业收入、毛利和库存"},
+        {"source_id": "POLICY_REACTION", "score": 64, "weight": 0.1, "label": "消费券、以旧换新、促消费政策"}
+      ]
+    },
+    {
+      "module_id": "corporate_cashflow",
+      "name": "企业利润与现金流",
+      "module_weight": 0.08,
+      "trend": "up",
+      "summary": "重点观察利润率、经营现金流、应收账款、库存、注销、破产和资本开支。",
+      "signals": [
+        {"source_id": "CORPORATE_FINANCIALS", "score": 72, "weight": 0.55, "label": "利润、现金流、应收账款和库存"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 64, "weight": 0.2, "label": "工业企业利润和行业数据"},
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 70, "weight": 0.15, "label": "融资成本、票据和违约"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 74, "weight": 0.1, "label": "注销、关店、回款难、账期拉长舆情"}
+      ]
+    },
+    {
+      "module_id": "industry",
+      "name": "产能过剩与价格战",
+      "module_weight": 0.07,
+      "trend": "up",
+      "summary": "重点观察新能源车、光伏、锂电、钢铁、水泥、化工、家电、半导体等行业的库存、价格和毛利。",
+      "signals": [
+        {"source_id": "CORPORATE_FINANCIALS", "score": 76, "weight": 0.35, "label": "行业毛利、库存、亏损面和现金流"},
+        {"source_id": "FOREIGN_CAPITAL_FLOW", "score": 62, "weight": 0.15, "label": "供应链迁移和海外投资"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 66, "weight": 0.25, "label": "工业产出、PPI 和制造业投资"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 78, "weight": 0.25, "label": "终端折扣、平台价格、工厂放假和订单舆情"}
+      ]
+    },
+    {
+      "module_id": "foreign_capital",
+      "name": "外资与资本信心",
+      "module_weight": 0.08,
+      "trend": "up",
+      "summary": "重点观察 FDI、FPI、外资债券持仓、商会调查、跨国公司中国 capex、供应链迁移。",
+      "signals": [
+        {"source_id": "FOREIGN_CAPITAL_FLOW", "score": 74, "weight": 0.65, "label": "FDI、证券投资、跨国公司和商会调查"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 58, "weight": 0.15, "label": "官方外资、外储和国际收支口径"},
+        {"source_id": "POLICY_REACTION", "score": 66, "weight": 0.1, "label": "稳外资、开放目录和资本管理政策"},
+        {"source_id": "HISTORICAL_CRISIS_CASES", "score": 50, "weight": 0.1, "label": "亚洲金融危机、阿根廷、土耳其等对照"}
+      ]
+    },
+    {
+      "module_id": "trade",
+      "name": "国际贸易竞争力",
+      "module_weight": 0.05,
+      "trend": "flat",
+      "summary": "重点观察出口数量与金额背离、出口价格、主要市场份额、贸易摩擦、运价和港口吞吐。",
+      "signals": [
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 50, "weight": 0.3, "label": "官方进出口和贸易顺差"},
+        {"source_id": "FOREIGN_CAPITAL_FLOW", "score": 60, "weight": 0.3, "label": "供应链迁移、外企采购和海外产能"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 64, "weight": 0.25, "label": "货运、港口、跨境电商、外贸订单舆情"},
+        {"source_id": "CORPORATE_FINANCIALS", "score": 62, "weight": 0.15, "label": "出口企业利润和价格战"}
+      ]
+    },
+    {
+      "module_id": "social_pressure",
+      "name": "社会压力外溢",
+      "module_weight": 0.03,
+      "trend": "up",
+      "summary": "重点观察欠薪、劳动仲裁、破产、民间借贷纠纷、社保医保压力、婚育和中产信心。",
+      "signals": [
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 70, "weight": 0.65, "label": "欠薪、仲裁、投诉、社媒和本地论坛"},
+        {"source_id": "CORPORATE_FINANCIALS", "score": 66, "weight": 0.2, "label": "破产、注销和经营压力"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 54, "weight": 0.15, "label": "人口、婚育和公共服务官方数据"}
+      ]
+    },
+    {
+      "module_id": "policy",
+      "name": "政策反应强度",
+      "module_weight": 0.03,
+      "trend": "up",
+      "summary": "政策越密集不一定越坏，但说明压力已经需要持续托底。",
+      "signals": [
+        {"source_id": "POLICY_REACTION", "score": 72, "weight": 0.7, "label": "降息降准、债务置换、稳楼市、稳就业、稳外资"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 60, "weight": 0.2, "label": "财政货币政策官方口径"},
+        {"source_id": "FOREIGN_CAPITAL_FLOW", "score": 56, "weight": 0.1, "label": "稳外资与资本流动政策"}
+      ]
+    }
+  ]
+}
