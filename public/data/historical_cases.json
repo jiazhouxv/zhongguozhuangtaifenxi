@@ -1,0 +1,74 @@
+[
+  {
+    "case_id": "JAPAN_1990_BALANCE_SHEET_RECESSION",
+    "name": "日本 1990s 资产负债表衰退",
+    "period": "1990s-2000s",
+    "crisis_type": ["房地产泡沫", "银行坏账", "资产负债表衰退", "低通胀"],
+    "similarity_score": 84,
+    "summary": "与中国当前最相似：房地产下行、居民和企业降杠杆、银行坏账延后确认、长期低通胀和低信心。",
+    "dimensions": {"real_estate": 5, "banking": 4, "foreign_debt": 1, "inflation": 4, "fiscal": 3, "household": 5}
+  },
+  {
+    "case_id": "EUROZONE_2009_SOVEREIGN_BANK_NEXUS",
+    "name": "欧债危机：主权—银行循环",
+    "period": "2009-2016",
+    "crisis_type": ["主权债务", "银行风险", "财政紧缩"],
+    "similarity_score": 70,
+    "summary": "可类比中国地方财政、城投债、地方银行之间的风险循环，但中国有本币主权和中央协调能力。",
+    "dimensions": {"real_estate": 2, "banking": 4, "foreign_debt": 2, "inflation": 1, "fiscal": 5, "household": 3}
+  },
+  {
+    "case_id": "USA_2008_SUBPRIME_CRISIS",
+    "name": "美国 2008 次贷危机",
+    "period": "2007-2009",
+    "crisis_type": ["房地产泡沫", "银行危机", "影子银行", "全球金融危机"],
+    "similarity_score": 64,
+    "summary": "房地产和银行资产质量相关，但中国没有同等规模的全球化次贷证券化和自由挤兑机制。",
+    "dimensions": {"real_estate": 5, "banking": 5, "foreign_debt": 1, "inflation": 1, "fiscal": 3, "household": 4}
+  },
+  {
+    "case_id": "ASIA_1997_FINANCIAL_CRISIS",
+    "name": "亚洲金融危机 1997",
+    "period": "1997-1998",
+    "crisis_type": ["货币危机", "银行危机", "外债", "资本外逃"],
+    "similarity_score": 42,
+    "summary": "中国存在资本流动和汇率预期压力，但外储、经常账户顺差和资本管制使经典外债危机风险较低。",
+    "dimensions": {"real_estate": 3, "banking": 4, "foreign_debt": 5, "inflation": 2, "fiscal": 2, "household": 2}
+  },
+  {
+    "case_id": "ARGENTINA_2001_CRISIS",
+    "name": "阿根廷 2001 崩盘",
+    "period": "1998-2002",
+    "crisis_type": ["债务违约", "货币局崩溃", "银行冻结", "资本外逃"],
+    "similarity_score": 28,
+    "summary": "作为极端尾部风险对照。中国不是美元化经济，也没有固定美元货币局制度。",
+    "dimensions": {"real_estate": 2, "banking": 4, "foreign_debt": 5, "inflation": 3, "fiscal": 5, "household": 3}
+  },
+  {
+    "case_id": "GERMANY_1923_HYPERINFLATION",
+    "name": "德国魏玛恶性通胀",
+    "period": "1921-1923",
+    "crisis_type": ["恶性通胀", "货币信用崩溃", "财政货币化"],
+    "similarity_score": 12,
+    "summary": "中国当前更像需求不足和低通胀，不像恶性通胀；该案例用于监测极端货币路径。",
+    "dimensions": {"real_estate": 0, "banking": 1, "foreign_debt": 2, "inflation": 5, "fiscal": 5, "household": 1}
+  },
+  {
+    "case_id": "LEBANON_2019_BANKING_COLLAPSE",
+    "name": "黎巴嫩 2019 银行体系崩溃",
+    "period": "2019-至今",
+    "crisis_type": ["银行冻结", "汇率崩溃", "存款损失", "国家信用崩溃"],
+    "similarity_score": 18,
+    "summary": "极端银行信心风险案例，目前不是中国基准路径，但可用于监测存款信心和资本管制尾部风险。",
+    "dimensions": {"real_estate": 2, "banking": 5, "foreign_debt": 4, "inflation": 4, "fiscal": 5, "household": 4}
+  },
+  {
+    "case_id": "SRI_LANKA_2022_FX_CRISIS",
+    "name": "斯里兰卡 2022 外汇危机",
+    "period": "2022-2023",
+    "crisis_type": ["外储枯竭", "主权违约", "进口短缺"],
+    "similarity_score": 16,
+    "summary": "中国外储、经常账户和外部资产明显强于斯里兰卡，该案例用于对照外汇安全边界。",
+    "dimensions": {"real_estate": 1, "banking": 2, "foreign_debt": 5, "inflation": 4, "fiscal": 5, "household": 2}
+  }
+]
