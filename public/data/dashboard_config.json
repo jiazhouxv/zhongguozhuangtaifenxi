@@ -1,0 +1,18 @@
+{
+  "version": "v0.1",
+  "title": "中国状态分析 Dashboard",
+  "subtitle": "多源数据支撑、风险评分、历史危机相似度原型",
+  "as_of": "2026-06-30",
+  "score_bands": [
+    {"min": 0, "max": 24, "label": "低风险", "className": "risk-low"},
+    {"min": 25, "max": 49, "label": "中低风险", "className": "risk-mid"},
+    {"min": 50, "max": 74, "label": "中高风险", "className": "risk-high"},
+    {"min": 75, "max": 100, "label": "高风险", "className": "risk-severe"}
+  ],
+  "default_view": "overview",
+  "notes": [
+    "V0.1 使用样例数据验证页面、开关、权重和评分逻辑。",
+    "隐藏数据源只影响展示；禁用或取消纳入评分才影响风险分。",
+    "后续接入真实抓取器后，public/data/*.json 由脚本自动生成。"
+  ]
+}
