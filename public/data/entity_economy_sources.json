@@ -1,0 +1,89 @@
+{
+  "version": "v0.1.3-sample",
+  "as_of": "2026-06-30",
+  "sources": [
+    {
+      "source_id": "COMPANY_REGISTRATION_EXIT",
+      "name": "企业新设/注销/吊销/破产",
+      "category": "entity_economy",
+      "description": "监测新开公司、注销公司、吊销公司、经营异常、破产重整和行业/地区分布。经济扩张期通常新设增加、注销率低、经营异常少；压力期则注销、吊销、破产、经营异常上升。",
+      "source_page": "./source-details/company-registration-exit.html",
+      "source_label": "查看企业新陈代谢来源",
+      "data_until": "2026-06-30",
+      "data_until_label": "当前为样例框架；正式版需按市场监管、企业信息服务、法院破产数据分别记录截至时间",
+      "enabled": true,
+      "visible": true,
+      "included_in_score": true,
+      "weight": 0.78,
+      "reliability": 0.70,
+      "bias_risk": "registration_lag_duplicate_entities_and_shell_company_bias",
+      "status": "sample",
+      "linked_modules": ["entity_activity", "corporate_cashflow", "employment", "social_pressure"]
+    },
+    {
+      "source_id": "STORE_ADDRESS_TURNOVER",
+      "name": "店铺新开/闭店/同址换店率",
+      "category": "offline_activity",
+      "description": "监测门店 POI 新增、消失、同一地址更换店铺、商铺转让、空置和租金变化。同址换店率高说明实体消费和小微经营不稳定。",
+      "source_page": "./source-details/store-address-turnover.html",
+      "source_label": "查看店铺周转来源",
+      "data_until": "2026-06-30",
+      "data_until_label": "当前为样例框架；正式版需按地图 POI、点评、企查查、招商租赁数据记录统计窗口",
+      "enabled": true,
+      "visible": true,
+      "included_in_score": true,
+      "weight": 0.80,
+      "reliability": 0.62,
+      "bias_risk": "poi_refresh_lag_chain_store_noise_and_address_matching_error",
+      "status": "sample",
+      "linked_modules": ["entity_activity", "consumption", "employment", "social_pressure"]
+    },
+    {
+      "source_id": "PROJECT_TENDER_ACTIVITY",
+      "name": "工程招投标与资金来源",
+      "category": "project_investment",
+      "description": "监测工程项目发标量、预算金额、中标金额、项目类型、资金来源、国有资金/财政/城投/民间资金结构。用于判断投资需求和项目资金真实活跃度。",
+      "source_page": "./source-details/project-tender-activity.html",
+      "source_label": "查看工程项目来源",
+      "data_until": "2026-06-30",
+      "data_until_label": "当前为样例框架；正式版需按公共资源交易、政府采购、招投标平台记录抓取时间",
+      "enabled": true,
+      "visible": true,
+      "included_in_score": true,
+      "weight": 0.76,
+      "reliability": 0.74,
+      "bias_risk": "announcement_duplication_project_delay_and_funding_source_ambiguity",
+      "status": "sample",
+      "linked_modules": ["project_activity", "local_fiscal", "corporate_cashflow", "employment", "industry"]
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "entity_activity",
+      "name": "企业与店铺新陈代谢",
+      "module_weight": 0.075,
+      "trend": "up",
+      "summary": "重点观察企业新设、注销、吊销、破产、经营异常、门店新开、闭店、同址换店率。",
+      "signals": [
+        {"source_id": "COMPANY_REGISTRATION_EXIT", "score": 76, "weight": 0.45, "label": "企业注销、吊销、经营异常、破产压力"},
+        {"source_id": "STORE_ADDRESS_TURNOVER", "score": 82, "weight": 0.40, "label": "店铺闭店、同址换店、空置和商铺转让"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 74, "weight": 0.10, "label": "线下商业、招商和本地生活数据"},
+        {"source_id": "PUBLIC_SENTIMENT_MONITOR", "score": 78, "weight": 0.05, "label": "关店、倒闭、转让、租金下降等情绪热词"}
+      ]
+    },
+    {
+      "module_id": "project_activity",
+      "name": "工程项目与投资活跃度",
+      "module_weight": 0.075,
+      "trend": "up",
+      "summary": "重点观察工程发标量、预算金额、中标金额、资金来源、国资/财政/城投/民资结构和项目流标率。",
+      "signals": [
+        {"source_id": "PROJECT_TENDER_ACTIVITY", "score": 78, "weight": 0.55, "label": "工程发标量、项目金额、资金来源结构"},
+        {"source_id": "CN_OFFICIAL_MACRO", "score": 66, "weight": 0.15, "label": "固定资产投资、基建投资、房地产投资官方口径"},
+        {"source_id": "DEBT_CREDIT_MARKET", "score": 80, "weight": 0.15, "label": "城投融资、专项债和信用环境"},
+        {"source_id": "CIVIL_COMMERCIAL_ALT_DATA", "score": 72, "weight": 0.10, "label": "工程款拖欠、项目停工和施工企业反馈"},
+        {"source_id": "PUBLIC_SENTIMENT_MONITOR", "score": 70, "weight": 0.05, "label": "停工、欠工程款、没项目、回款难等情绪热词"}
+      ]
+    }
+  ]
+}
