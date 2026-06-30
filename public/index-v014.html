@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>中国状态分析 Dashboard V0.1.4</title>
+<style>
+:root{--bg:#0b1324;--panel:#101b2d;--panel2:#142238;--line:rgba(148,163,184,.22);--text:#e5e7eb;--muted:#94a3b8;--blue:#38bdf8;--green:#22c55e;--yellow:#facc15;--orange:#fb923c;--red:#fb7185;--shadow:0 16px 42px rgba(0,0,0,.32)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0,rgba(56,189,248,.14),transparent 30%),linear-gradient(180deg,#0b1b31,#090f1e 60%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.55}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}header,main{max-width:1360px;margin:0 auto;padding:20px 24px}h1{margin:0;font-size:30px;letter-spacing:.02em}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:0}.muted{color:var(--muted)}.small{font-size:12px}.grid{display:grid;gap:14px}.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.badge,.chip{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin:3px;color:#cbd5e1;background:rgba(15,23,42,.54);font-size:12px}.chip{cursor:pointer}.chip.active{border-color:var(--blue);box-shadow:0 0 0 1px rgba(56,189,248,.25);color:#e0f2fe}.card{background:linear-gradient(180deg,rgba(20,34,56,.95),rgba(16,27,45,.94));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px}.cockpit{grid-template-columns:1.02fr 1.55fr}.driver{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.navbtn{width:42px;height:42px;border-radius:12px;background:rgba(56,189,248,.13);border:1px solid rgba(56,189,248,.3);color:var(--text);cursor:pointer;font-size:18px}.navbtn:hover{background:rgba(56,189,248,.22)}.scoreLine{display:flex;gap:18px;align-items:center;margin-top:14px}.ring{--score:0;width:168px;height:168px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--ringColor) calc(var(--score)*1%),rgba(148,163,184,.16) 0)}.ring:after{content:"";position:absolute;inset:13px;border-radius:50%;background:#0f172a;border:1px solid var(--line)}.ring strong{position:relative;z-index:1;font-size:48px;letter-spacing:-.03em}.miniRing{--score:0;width:78px;height:78px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--ringColor) calc(var(--score)*1%),rgba(148,163,184,.16) 0)}.miniRing:after{content:"";position:absolute;inset:8px;border-radius:50%;background:#101b2d;border:1px solid rgba(148,163,184,.16)}.miniRing strong{position:relative;z-index:1;font-size:20px}.risk-low{color:var(--green)}.risk-mid{color:var(--yellow)}.risk-high{color:var(--orange)}.risk-severe{color:var(--red)}.bar{height:9px;background:rgba(148,163,184,.18);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;border-radius:999px}.bar-low{background:var(--green)}.bar-mid{background:var(--yellow)}.bar-high{background:var(--orange)}.bar-severe{background:var(--red)}.driverGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.driverItem{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:10px;background:rgba(15,23,42,.34)}.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.select,select,button{background:rgba(56,189,248,.12);color:var(--text);border:1px solid rgba(56,189,248,.3);border-radius:10px;padding:7px 10px}select option{background:#101b2d;color:var(--text)}.moduleToolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 10px}.modules.circle{grid-template-columns:repeat(7,minmax(0,1fr))}.moduleCircle{min-height:146px;text-align:center}.moduleCircle .miniRing{margin:8px auto}.modules.barview{grid-template-columns:repeat(3,minmax(0,1fr))}.moduleBar{min-height:112px}.moduleBar .row,.row{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.modules.trend{grid-template-columns:repeat(3,minmax(0,1fr))}.spark{height:34px;border-bottom:1px solid rgba(148,163,184,.24);background:linear-gradient(135deg,transparent 0 35%,rgba(56,189,248,.18) 35% 38%,transparent 38% 60%,rgba(251,146,60,.24) 60% 63%,transparent 63%)}details{border:1px solid var(--line);border-radius:16px;background:rgba(15,23,42,.28);padding:12px;margin-top:16px}summary{cursor:pointer;font-weight:700}.sources{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}.sourceCard{border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:12px;background:rgba(15,23,42,.38)}label{font-size:13px;color:var(--muted);margin-right:8px}input[type=range]{width:100%}table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px solid rgba(148,163,184,.18);padding:8px;text-align:left;vertical-align:top}td{color:var(--muted)}.caseGrid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}.caseCard{border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:12px;background:rgba(15,23,42,.32)}@media(max-width:1180px){.cockpit,.driverGrid,.modules.circle,.modules.barview,.modules.trend,.sources,.caseGrid{grid-template-columns:1fr 1fr}.scoreLine{align-items:flex-start}.driver{grid-template-columns:1fr}.navbtn{display:none}}@media(max-width:680px){header,main{padding:16px}.cockpit,.driverGrid,.modules.circle,.modules.barview,.modules.trend,.sources,.caseGrid{grid-template-columns:1fr}.scoreLine{flex-direction:column}.ring{width:148px;height:148px}.topbar{align-items:flex-start}.tools{display:block}.chip{margin-bottom:6px}.driverItem{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div><h1>中国状态分析 Dashboard</h1><p class="muted">V0.1.4：首页驾驶舱重排；风险模块上移；圆环 / 横条 / 趋势视图；场景切换联动全页。</p></div>
+    <div><span class="badge" id="asOfBadge">分析截至：--</span><span class="badge" id="dataModeBadge">样例数据</span></div>
+  </div>
+</header>
+<main>
+  <section class="grid cockpit">
+    <div class="card">
+      <div class="driver">
+        <button class="navbtn" onclick="prevScenario()">←</button>
+        <div>
+          <h2 id="scenarioTitle">--</h2>
+          <p class="muted" id="scenarioMeta">--</p>
+          <div id="checkpointBox"></div>
+        </div>
+        <button class="navbtn" onclick="nextScenario()">→</button>
+      </div>
+      <div class="scoreLine">
+        <div class="ring" id="scoreRing"><strong id="totalScore">--</strong></div>
+        <div>
+          <h2 id="riskBand">--</h2>
+          <p class="muted" id="scoreMeta"></p>
+          <p class="muted" id="scenarioSignals"></p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row"><h2>关键风险驱动 Top 6</h2><span class="badge" id="activePresetName">权重：--</span></div>
+      <section class="grid driverGrid" id="driverGrid"></section>
+      <div style="margin-top:12px">
+        <span class="muted small">权重预设：</span><span id="presetChips"></span>
+        <p class="muted small" id="presetBasis">鼠标停在预设上查看依据。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="moduleToolbar">
+    <div><h2 style="margin-bottom:2px">风险模块总览</h2><span class="muted small">默认圆环视图；可切换为横条或趋势。切换中国 / 日本场景后，本区同步变化。</span></div>
+    <div class="tools">视图：<button onclick="setView('circle')">圆环</button><button onclick="setView('barview')">横条</button><button onclick="setView('trend')">趋势</button></div>
+  </div>
+  <section id="moduleList" class="grid modules circle"></section>
+
+  <details>
+    <summary>数据源控制台</summary>
+    <p class="muted" id="sourceSummary">--</p>
+    <div><button onclick="enableAll()">全部启用</button><button onclick="disableOfficial()">禁用官方数据试算</button><button onclick="resetAll()">恢复默认</button></div>
+    <section id="sourceList" class="grid sources"></section>
+  </details>
+
+  <details>
+    <summary>历史危机相似度</summary>
+    <section id="caseList" class="grid caseGrid"></section>
+  </details>
+
+  <details>
+    <summary>数据源总表</summary>
+    <table id="sourceTable"></table>
+  </details>
+</main>
+<script>
+const P={sources:'./data/sources.json',risks:'./data/risk_scores.json',cases:'./data/historical_cases.json',presets:'./data/weight_presets.json',replay:'./data/historical_replay.json',entity:'./data/entity_economy_sources.json'};
+let S=[],R=null,C=[],W=[],H=null,E=null,D=[],preset='balanced_research',scenario=0,ck='event',view='circle';
+async function j(p){let r=await fetch(p,{cache:'no-store'});if(!r.ok)throw Error(p);return r.json()}
+function color(x){return x>=75?'#fb7185':x>=50?'#fb923c':x>=25?'#facc15':'#22c55e'}
+function cls(x){return x>=75?'risk-severe':x>=50?'risk-high':x>=25?'risk-mid':'risk-low'}
+function bcls(x){return x>=75?'bar-severe':x>=50?'bar-high':x>=25?'bar-mid':'bar-low'}
+function band(x){return x>=75?'高风险':x>=50?'中高风险':x>=25?'中低风险':'低风险'}
+function src(id){return S.find(x=>x.source_id===id)}
+function allModules(){return [...R.modules,...E.modules]}
+function moduleById(id){return allModules().find(x=>x.module_id===id)}
+function mname(id){let m=moduleById(id);return m?m.name:id}
+function mweight(id){let m=moduleById(id);return m?m.module_weight:0.05}
+function modScore(m){let a=0,t=0;m.signals.forEach(g=>{let s=src(g.source_id);if(!s||!s.enabled||!s.included_in_score)return;let w=(g.weight||0)*(s.weight||0)*(s.reliability||1);a+=(g.score||0)*w;t+=w});return t?Math.round(a/t):0}
+function currentScores(){let o={};allModules().forEach(m=>o[m.module_id]=modScore(m));return o}
+function replayEvent(){return H.events[0]}
+function replayPoint(){let ev=replayEvent();return ev.timeline.find(x=>x.checkpoint===ck)||ev.timeline.find(x=>x.checkpoint==='event')||ev.timeline[0]}
+function scenarioScores(){return scenario===0?currentScores():replayPoint().scores}
+function total(){let scores=scenarioScores(),a=0,t=0;Object.entries(scores).forEach(([k,v])=>{let w=mweight(k);a+=v*w;t+=w});return t?Math.round(a/t):0}
+function setView(v){view=v;renderModules()}
+function prevScenario(){scenario=(scenario+1)%2;render()}
+function nextScenario(){scenario=(scenario+1)%2;render()}
+function applyPreset(id){let p=W.find(x=>x.preset_id===id);if(!p)return;preset=id;S.forEach(s=>{if(p.weights[s.source_id]!=null)s.weight=p.weights[s.source_id]});render()}
+function topDrivers(){let scores=scenarioScores();return Object.entries(scores).sort((a,b)=>b[1]-a[1]).slice(0,6)}
+function ringHtml(v,small=false){let cl=small?'miniRing':'ring';return '<div class="'+cl+'" style="--score:'+v+';--ringColor:'+color(v)+'"><strong class="'+cls(v)+'">'+v+'</strong></div>'}
+function renderTop(){let T=total();document.getElementById('scoreRing').style.setProperty('--score',T);document.getElementById('scoreRing').style.setProperty('--ringColor',color(T));document.getElementById('totalScore').textContent=T;document.getElementById('totalScore').className=cls(T);document.getElementById('riskBand').textContent=band(T);document.getElementById('riskBand').className=cls(T);let p=W.find(x=>x.preset_id===preset);document.getElementById('activePresetName').textContent='权重：'+(p?p.name:'自定义');if(scenario===0){document.getElementById('scenarioTitle').textContent='中国当前状态';document.getElementById('scenarioMeta').textContent='分析截至：'+R.as_of+'｜当前节点：中国当前样例评分';document.getElementById('asOfBadge').textContent='分析截至：'+R.as_of;document.getElementById('dataModeBadge').textContent='中国当前｜样例数据';document.getElementById('checkpointBox').innerHTML='';document.getElementById('scenarioSignals').textContent='总分由下方风险模块和当前启用数据源加权得到。'}else{let ev=replayEvent(),pt=replayPoint();document.getElementById('scenarioTitle').textContent=ev.name;document.getElementById('scenarioMeta').textContent='事件锚点：'+ev.event_date+'｜当前节点：'+pt.label+'（'+pt.date+'）';document.getElementById('asOfBadge').textContent='历史回溯：'+pt.date;document.getElementById('dataModeBadge').textContent=ev.data_status;document.getElementById('checkpointBox').innerHTML='<select onchange="ck=this.value;render()">'+ev.timeline.map(x=>'<option value="'+x.checkpoint+'" '+(x.checkpoint===pt.checkpoint?'selected':'')+'>'+x.label+'</option>').join('')+'</select>';document.getElementById('scenarioSignals').textContent=pt.signals.join(' / ')}document.getElementById('scoreMeta').textContent='启用数据源 '+S.filter(x=>x.enabled).length+'/'+S.length+'｜纳入评分 '+S.filter(x=>x.enabled&&x.included_in_score).length+'/'+S.length+'｜点击左右箭头切换中国当前与历史回溯。'}
+function renderDrivers(){document.getElementById('driverGrid').innerHTML=topDrivers().map(([k,v])=>'<article class="driverItem">'+ringHtml(v,true)+'<div><strong>'+mname(k)+'</strong><p class="muted small">'+(scenario===0?'当前主要风险驱动':'历史节点主要风险驱动')+'</p></div></article>').join('')}
+function renderPresets(){let p=W.find(x=>x.preset_id===preset);document.getElementById('presetBasis').textContent=p?p.name+'：'+p.basis:'自定义权重：你已手动修改数据源。';document.getElementById('presetChips').innerHTML=W.map(x=>'<span class="chip '+(x.preset_id===preset?'active':'')+'" title="'+x.description+'｜依据：'+x.basis+'" onclick="applyPreset(\''+x.preset_id+'\')">'+x.name+'</span>').join('')}
+function renderModules(){let scores=scenarioScores();let el=document.getElementById('moduleList');el.className='grid modules '+view;if(view==='circle'){el.innerHTML=Object.entries(scores).map(([k,v])=>'<article class="card moduleCircle"><h3>'+mname(k)+'</h3>'+ringHtml(v,true)+'<p class="muted small">'+(scenario===0?'中国当前分数':'历史节点分数')+'</p></article>').join('')}else if(view==='barview'){el.innerHTML=Object.entries(scores).map(([k,v])=>'<article class="card moduleBar"><div class="row"><h3>'+mname(k)+'</h3><strong class="'+cls(v)+'">'+v+'</strong></div><div class="bar"><span class="'+bcls(v)+'" style="width:'+v+'%"></span></div><p class="muted small">'+(scenario===0?'受数据源和权重影响':'历史回溯节点样例')+'</p></article>').join('')}else{el.innerHTML=Object.entries(scores).map(([k,v])=>'<article class="card moduleBar"><div class="row"><h3>'+mname(k)+'</h3><strong class="'+cls(v)+'">'+v+'</strong></div><div class="spark"></div><p class="muted small">趋势视图占位：V0.2 接入历史序列后显示真实折线。</p></article>').join('')}}
+function renderSources(){document.getElementById('sourceSummary').textContent='启用 '+S.filter(x=>x.enabled).length+'/'+S.length+'｜纳入评分 '+S.filter(x=>x.enabled&&x.included_in_score).length+'/'+S.length+'｜样例数据源：当前全部仍为样例或框架，后续接入真实抓取器。';document.getElementById('sourceList').innerHTML=S.filter(x=>x.visible).map(x=>'<article class="sourceCard"><div class="row"><strong>'+x.name+'</strong><span class="badge">'+x.category+'</span></div><p class="muted small">'+x.description+'</p><p class="muted small">数据截至：'+(x.data_until||'未标记')+'｜'+(x.data_until_label||'')+'</p><p><a href="'+x.source_page+'" target="_blank">'+(x.source_label||'查看来源')+'</a></p><label><input type="checkbox" onchange="chg(\''+x.source_id+'\',\'enabled\',this.checked)" '+(x.enabled?'checked':'')+'> 启用</label><label><input type="checkbox" onchange="chg(\''+x.source_id+'\',\'visible\',this.checked)" '+(x.visible?'checked':'')+'> 显示</label><label><input type="checkbox" onchange="chg(\''+x.source_id+'\',\'included\',this.checked)" '+(x.included_in_score?'checked':'')+'> 纳入评分</label><p><input type="range" min="0" max="1" step="0.05" value="'+x.weight+'" oninput="chg(\''+x.source_id+'\',\'weight\',this.value)"></p><p class="muted small">可信度 '+x.reliability+'｜偏差风险：'+x.bias_risk+'</p></article>').join('')}
+function renderCases(){document.getElementById('caseList').innerHTML=C.sort((a,b)=>b.similarity_score-a.similarity_score).map(c=>'<article class="caseCard"><div class="row"><strong>'+c.name+'</strong><span class="'+cls(c.similarity_score)+'">'+c.similarity_score+'</span></div><div class="bar"><span class="'+bcls(c.similarity_score)+'" style="width:'+c.similarity_score+'%"></span></div><p class="muted small">'+c.summary+'</p></article>').join('')}
+function renderTable(){document.getElementById('sourceTable').innerHTML='<thead><tr><th>数据源</th><th>状态</th><th>权重</th><th>数据截至</th><th>来源</th></tr></thead><tbody>'+S.map(x=>'<tr><td>'+x.name+'<br><span class="muted">'+x.source_id+'</span></td><td>'+(x.enabled?'启用':'禁用')+' / '+(x.visible?'显示':'隐藏')+' / '+(x.included_in_score?'纳入':'不纳入')+'</td><td>'+Number(x.weight).toFixed(2)+'</td><td>'+(x.data_until||'未标记')+'<br><span class="muted">'+(x.data_until_label||'')+'</span></td><td><a href="'+x.source_page+'" target="_blank">来源说明</a></td></tr>').join('')+'</tbody>'}
+function chg(id,k,v){let s=src(id);if(!s)return;if(k==='enabled')s.enabled=v;if(k==='visible')s.visible=v;if(k==='included')s.included_in_score=v;if(k==='weight'){s.weight=Number(v);preset='custom'}render()}
+function enableAll(){S.forEach(s=>{s.enabled=true;s.visible=true;s.included_in_score=s.category!=='historical_cases'});preset='custom';render()}function disableOfficial(){let s=src('CN_OFFICIAL_MACRO');if(s){s.enabled=false;s.included_in_score=false}preset='custom';render()}function resetAll(){S=JSON.parse(JSON.stringify(D));scenario=0;ck='event';preset='balanced_research';applyPreset(preset)}
+function render(){renderTop();renderDrivers();renderPresets();renderModules();renderSources();renderCases();renderTable()}
+(async()=>{let baseSources;[baseSources,R,C,W,H,E]=await Promise.all([j(P.sources),j(P.risks),j(P.cases),j(P.presets),j(P.replay),j(P.entity)]);S=[...baseSources,...E.sources];D=JSON.parse(JSON.stringify(S));applyPreset(preset)})().catch(e=>{document.body.innerHTML='<main><h1>页面加载失败</h1><pre>'+e.message+'</pre></main>'})
+</script>
+</body></html>
